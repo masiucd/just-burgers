@@ -10,10 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Connect to MongoDB
 mongoose
-  .connect(
-    'mongodb://mongo:27017/docker-node-mongo',
-    { useNewUrlParser: true }
-  )
+  .connect('mongodb://mongo:27017/docker-node-mongo', { useNewUrlParser: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
@@ -27,7 +24,7 @@ app.get('/', (req, res) => {
 
 app.post('/item/add', (req, res) => {
   const newItem = new Item({
-    name: req.body.name
+    name: req.body.name,
   });
 
   newItem.save().then(item => res.redirect('/'));
