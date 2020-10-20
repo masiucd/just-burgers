@@ -24,6 +24,14 @@ const plugins = [
     },
   },
   {
+    resolve: `gatsby-source-contentful`,
+    options: {
+      spaceId: `8f008ppch8fx`,
+
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    },
+  },
+  {
     resolve: 'gatsby-plugin-google-fonts',
     options: {
       fonts: [`Lora:400,700`],
