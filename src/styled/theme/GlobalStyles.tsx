@@ -10,9 +10,11 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-size: ${props => props.theme.appSize}; /**16px */
   }
+  
   body {
     background-color: ${props => props.theme.colors.elements.bg};
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+
     font-weight: 400;
     line-height: 1.65;
     padding: 0;
@@ -29,13 +31,13 @@ export const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
   button {
-      font-family: 'Space Mono', monospace;
+      font-family: 'Inconsolata', monospace;
       font-weight: 300;
      }
   h1, h2, h3, h4, h5
   {
     margin: 2.75rem 0 1.05rem;
-    font-family: 'Space Mono', monospace;
+    font-family: 'Inconsolata', monospace;
     font-weight: 400;
     line-height: 1.15;
     color: ${({ theme }) => theme.colors.elements.paragraph};
