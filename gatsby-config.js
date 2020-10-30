@@ -1,10 +1,13 @@
-const siteTitle = "gatsby-starter-typescript-deluxe";
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+const siteTitle = "gatsby-starter-typescript-deluxe"
 const siteDescription =
-  "A Gatsby starter with TypeScript, Storybook, Styled Components, Framer Motion, Jest, and more.";
-const siteAuthor = "@gojutin";
-const siteUrl = "https://gatsby-starter-typescript-deluxe.netlify.com";
-const siteImage = `${siteUrl}/icons/icon_512x512.png`;
-const siteKeywords = ["gatsby", "typescript", "starter", "javascript", "react"];
+  "A Gatsby starter with TypeScript, Storybook, Styled Components, Framer Motion, Jest, and more."
+const siteAuthor = "@gojutin"
+const siteUrl = "https://gatsby-starter-typescript-deluxe.netlify.com"
+const siteImage = `${siteUrl}/icons/icon_512x512.png`
+const siteKeywords = ["gatsby", "typescript", "starter", "javascript", "react"]
 
 module.exports = {
   siteMetadata: {
@@ -21,6 +24,14 @@ module.exports = {
       options: {
         path: `${__dirname}/src/images`,
         name: "images",
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.SPACE_ID,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     {
@@ -66,4 +77,4 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
   ],
-};
+}

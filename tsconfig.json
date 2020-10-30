@@ -1,17 +1,12 @@
 {
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules"],
   "compilerOptions": {
-    "target": "es5",
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "esnext",
     "jsx": "react",
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "typeRoots": ["node_modules/@types/", "./src/@types/", ".src/**/@types/"],
-    "strict": true
-  }
+    "lib": ["dom", "esnext"]
+  },
+  "include": ["./src/**/*"]
 }

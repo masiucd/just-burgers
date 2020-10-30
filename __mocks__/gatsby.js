@@ -1,5 +1,5 @@
-const React = require("react");
-const gatsby = jest.requireActual("gatsby");
+const React = require("react")
+const gatsby = jest.requireActual("gatsby")
 
 module.exports = {
   ...gatsby,
@@ -11,6 +11,7 @@ module.exports = {
       activeStyle,
       getProps,
       innerRef,
+      partiallyActive,
       ref,
       replace,
       to,
@@ -23,4 +24,4 @@ module.exports = {
   ),
   StaticQuery: jest.fn(),
   useStaticQuery: jest.fn(),
-};
+}
