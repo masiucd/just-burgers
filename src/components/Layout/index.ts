@@ -1,2 +1,1 @@
-export { default as GlobalStyles } from './GlobalStyles';
-export { default as Layout } from './DefaultLayout';
+export { Layout } from "./layout";

@@ -1,47 +1,133 @@
-import React from 'react';
-import Helmet, { HelmetProps } from 'react-helmet';
-import { injectIntl, InjectedIntlProps } from 'gatsby-plugin-intl';
-import { Location } from '@reach/router';
+import React from "react";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
-type Props = {
-  /** Description text for the description meta tags */
+type MetaItem = {
+  name: string;
+  content: string;
+};
+
+type SEOProps = {
+  title?: string;
   description?: string;
-} & HelmetProps &
-  InjectedIntlProps;
+  url?: string;
+  author?: string;
+  keywords?: string[];
+  meta?: MetaItem[];
+  image?: string;
+};
 
-/**
- * An SEO component that handles all element in the head that can accept
- */
-const SEO: React.FC<Props> = ({ children, description = '', title, intl }) => {
-  const metaDescription = description || 'Welcome to my website';
+const SEO: React.FC<SEOProps> = (props) => {
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
+          description
+          author
+          url
+          keywords
+          image
+        }
+      }
+    }
+  `);
 
+  const { siteMetadata } = data.site;
+
+  const {
+    title,
+    description,
+    url,
+    author,
+    meta = [],
+    keywords = [],
+    image,
+  } = siteMetadata;
+  const siteTitle = props.title || title;
+  const siteDescription = props.description || description;
+  const siteUrl = props.url || url;
+  const siteAuthor = props.author || author;
+  const siteImage = props.image || image;
+  const siteKeywords = [...keywords, props.keywords].join(",");
+  const metaData = [
+    {
+      name: "canonical",
+      content: siteUrl,
+    },
+    {
+      name: "description",
+      content: siteDescription,
+    },
+    {
+      name: "image",
+      content: siteImage,
+    },
+    {
+      name: "og:url",
+      content: siteUrl,
+    },
+    {
+      name: "og:type",
+      content: "article",
+    },
+    {
+      name: "og:title",
+      content: siteTitle,
+    },
+    {
+      name: "og:description",
+      content: siteDescription,
+    },
+    {
+      name: "og:image",
+      content: siteImage,
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:creator",
+      content: siteAuthor,
+    },
+    {
+      name: "twitter:title",
+      content: siteTitle,
+    },
+    {
+      name: "twitter:description",
+      content: siteDescription,
+    },
+    {
+      name: "twitter:image",
+      content: siteImage,
+    },
+    {
+      name: "keywords",
+      content: siteKeywords,
+    },
+  ].concat(meta);
+
+  const linkData = [
+    {
+      rel: "shortcut icon",
+      href: "favicon.ico",
+    },
+    {
+      rel: "apple-touch-icon",
+      href: "icons/apple-touch-icon.png",
+    },
+  ];
   return (
-    <Location>
-      {({ location }) => (
-        <Helmet
-          htmlAttributes={{
-            lang: intl.locale,
-          }}
-          title={title}
-          titleTemplate="%s | Website"
-        >
-          <meta property="description" content={metaDescription} />
-
-          {/* OG tags */}
-          <meta
-            property="og:url"
-            content={process.env.GATSBY_SITE_URL + location.pathname}
-          />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content={title} />
-          <meta property="og:description" content={metaDescription} />
-          <meta property="og:locale" content={intl.locale} />
-
-          {children}
-        </Helmet>
-      )}
-    </Location>
+    <Helmet
+      htmlAttributes={{ lang: "en" }}
+      title={siteTitle}
+      // titleTemplate={`%s | ${siteTitle}`}
+      meta={metaData}
+      link={linkData}
+    />
   );
 };
 
-export default injectIntl(SEO);
+export { SEO };

@@ -1,1 +1,1 @@
-export { default as SEO } from './SEO';
+export { SEO } from "./seo";

@@ -52,8 +52,7 @@ typings/
 *.tgz
 
 # dotenv environment variables file
-.env*
-!.env.sample
+.env
 
 # gatsby files
 .cache/
@@ -62,15 +61,7 @@ public
 # Mac files
 .DS_Store
 
-# Yarn
-yarn-error.log
 .pnp/
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-
-# Storybook
-.out
-
-# Ensure automated processes do not mix package manager artifacts
-package-lock.json
