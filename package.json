@@ -3,8 +3,9 @@
   "private": true,
   "description": "just-burgers-web-app",
   "version": "0.1.0",
-  "author": "Marcell <ciszejmarcell@gmail.com>",
+  "author": "marcell <ciszekmarcell@gmail.com>",
   "dependencies": {
+    "@testing-library/user-event": "^12.1.10",
     "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
@@ -40,18 +41,19 @@
     "@testing-library/react": "^11.1.0",
     "@types/jest": "^24.0.14",
     "@types/node": "^12.0.2",
+    "@types/react-router-dom": "^5.1.6",
     "@types/styled-components": "^5.1.4",
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
     "add": "^2.0.6",
     "babel-jest": "^24.8.0",
-    "babel-preset-gatsby": "^0.1.11",
+    "babel-preset-gatsby": "^0.5.14",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.8.0",
+    "jest": "^26.6.1",
     "prettier": "^1.17.1",
     "react-test-renderer": "^17.0.1",
     "ts-jest": "^24.0.2",
@@ -74,13 +76,6 @@
   },
   "repository": {
     "type": "git",
-<<<<<<< Updated upstream
     "url": "https://github.com/masiuciszek/just-burgers"
-=======
-    "url": "https://github.com/masiuciszek/Just-burgers"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
->>>>>>> Stashed changes
   }
 }

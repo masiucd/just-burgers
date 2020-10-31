@@ -2,6 +2,7 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { mainTheme, GlobalStyles, Typography } from "../../styled/theme"
 import { graphql, useStaticQuery } from "gatsby"
+import Header from "./Header"
 
 interface LayoutProps {
   title?: string
@@ -60,7 +61,10 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
       <GlobalStyles />
       <Typography />
       <Page bg={data.file.publicURL}>
-        <Main>{children}</Main>
+        <Main>
+          <Header className="main-header" />
+          {children}
+        </Main>
       </Page>
     </ThemeProvider>
   )

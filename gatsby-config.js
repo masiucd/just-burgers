@@ -71,18 +71,18 @@ module.exports = {
         themeColor: `#663399`,
         display: `minimal-ui`,
         icon: "src/images/favicons/android-chrome-512x512.png",
-        icons: [
-          {
-            src: "/images/favicons/android-chrome-512x512.png",
-            sizes: "512x512",
-            types: "image/png",
-          },
-          {
-            src: "/images/favicons/android-chrome-192x192.png",
-            sizes: "192x192",
-            types: "image/png",
-          },
-        ],
+        // icons: [
+        //   {
+        //     src: "/images/android-chrome-512x512.png",
+        //     sizes: "512x512",
+        //     types: "image/png",
+        //   },
+        //   {
+        //     src: "/images/android-chrome-192x192.png",
+        //     sizes: "192x192",
+        //     types: "image/png",
+        //   },
+        // ],
       },
     },
     `gatsby-plugin-offline`,
