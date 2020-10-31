@@ -1,9 +1,9 @@
 {
   "name": "just-burgers",
   "private": true,
-  "description": "Burgers-store",
+  "description": "just-burgers-web-app",
   "version": "0.1.0",
-  "author": "Marcell Ciszek <ciszekmarcell@gmail.com>",
+  "author": "Marcell <ciszejmarcell@gmail.com>",
   "dependencies": {
     "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
@@ -36,11 +36,14 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
     "@types/jest": "^24.0.14",
     "@types/node": "^12.0.2",
     "@types/styled-components": "^5.1.4",
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
+    "add": "^2.0.6",
     "babel-jest": "^24.8.0",
     "babel-preset-gatsby": "^0.1.11",
     "eslint": "^5.16.0",
@@ -50,9 +53,10 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "prettier": "^1.17.1",
-    "react-test-renderer": "^16.8.6",
+    "react-test-renderer": "^17.0.1",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.2",
+    "yarn": "^1.22.10"
   },
   "keywords": [
     "gatsby"
