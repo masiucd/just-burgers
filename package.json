@@ -1,7 +1,7 @@
 {
-  "name": "Just burgers",
+  "name": "just-burgers",
   "private": true,
-  "description": "Burgers store",
+  "description": "Burgers-store",
   "version": "0.1.0",
   "author": "Marcell Ciszek <ciszekmarcell@gmail.com>",
   "dependencies": {
@@ -22,6 +22,7 @@
     "gatsby-plugin-sharp": "^2.6.43",
     "gatsby-plugin-styled-components": "^3.3.14",
     "gatsby-plugin-typescript": "^2.0.15",
+    "gatsby-plugin-typography": "^2.5.13",
     "gatsby-source-contentful": "^3.0.6",
     "gatsby-source-filesystem": "^2.0.37",
     "gatsby-transformer-sharp": "^2.5.20",
@@ -30,7 +31,9 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "styled-components": "^5.2.0"
+    "react-typography": "^0.16.19",
+    "styled-components": "^5.2.0",
+    "typography": "^0.16.19"
   },
   "devDependencies": {
     "@types/jest": "^24.0.14",
@@ -67,9 +70,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/denningk/gatsby-starter-typescript-jest"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/masiuciszek/just-burgers"
   }
 }

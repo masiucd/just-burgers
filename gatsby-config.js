@@ -6,7 +6,10 @@ const siteTitle = "Just Burgers"
 const siteDescription = "Burgers store"
 const siteAuthor = "@ciszekmarcell"
 const siteUrl = "https://gatsby-starter-typescript-deluxe.netlify.com"
-// const siteImage = `${siteUrl}/icons/icon_512x512.png`
+const titleTemplate = `%s · ${siteTitle}`
+const twitterUsername = "@Ciszekmarcell"
+
+const siteImage = `images/favicons//android-chrome-512x512.png`
 const siteKeywords = ["gatsby", "typescript", "food", "javascript", "react"]
 
 module.exports = {
@@ -14,9 +17,11 @@ module.exports = {
     title: siteTitle,
     description: siteDescription,
     author: siteAuthor,
-    url: siteUrl,
+    siteUrl,
+    titleTemplate,
     keywords: siteKeywords,
-    // image: siteImage,
+    image: siteImage, // Path to your image you placed in the 'static' folder
+    twitterUsername,
   },
   plugins: [
     {
@@ -65,19 +70,19 @@ module.exports = {
         backgroundColor: `#663399`,
         themeColor: `#663399`,
         display: `minimal-ui`,
-        // icon: "src/images/icon.png",
-        // icons: [
-        //   {
-        //     src: "icons/icon_512x512.png",
-        //     sizes: "512x512",
-        //     types: "image/png",
-        //   },
-        //   {
-        //     src: "icons/icon_192x192.png",
-        //     sizes: "192x192",
-        //     types: "image/png",
-        //   },
-        // ],
+        icon: "src/images/favicons/android-chrome-512x512.png",
+        icons: [
+          {
+            src: "/images/favicons/android-chrome-512x512.png",
+            sizes: "512x512",
+            types: "image/png",
+          },
+          {
+            src: "/images/favicons/android-chrome-192x192.png",
+            sizes: "192x192",
+            types: "image/png",
+          },
+        ],
       },
     },
     `gatsby-plugin-offline`,
