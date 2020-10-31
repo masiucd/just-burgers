@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-typescript-jest",
+  "name": "Just burgers",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Burgers store",
   "version": "0.1.0",
-  "author": "Keith Denning <keithdenning1@gmail.com>",
+  "author": "Marcell Ciszek <ciszekmarcell@gmail.com>",
   "dependencies": {
     "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
