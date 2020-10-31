@@ -14,7 +14,6 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${props => props.theme.colors.elements.bg};
     font-family: 'Montserrat', sans-serif;
-
     font-weight: 400;
     line-height: 1.65;
     padding: 0;

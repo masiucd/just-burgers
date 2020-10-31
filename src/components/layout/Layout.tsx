@@ -1,13 +1,38 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { mainTheme, GlobalStyles } from "../../styled/theme"
+import { graphql } from "gatsby"
 
 interface LayoutProps {
   title?: string
 }
 
+const Page = styled.div`
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const Main = styled.main`
   margin: 0 auto;
+  max-width: ${props => props.theme.size.maxWidth};
+  /* TODO: Delete */
+  border: 5px solid ${props => props.theme.colors.elements.bg};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  position: relative;
+  padding: 1em;
+  height: 100%;
+  &:after {
+    content: "";
+    border: 5px dashed ${props => props.theme.colors.illustrations.tertiary};
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 `
 
 const Layout: React.FC<LayoutProps> = ({ title, children }) => {
@@ -21,7 +46,9 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
         />
         {title}
       </title>
-      <Main>{children}</Main>
+      <Page>
+        <Main>{children}</Main>
+      </Page>
     </ThemeProvider>
   )
 }
