@@ -74,6 +74,13 @@
   },
   "repository": {
     "type": "git",
+<<<<<<< Updated upstream
     "url": "https://github.com/masiuciszek/just-burgers"
+=======
+    "url": "https://github.com/masiuciszek/Just-burgers"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+>>>>>>> Stashed changes
   }
 }
