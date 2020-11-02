@@ -1,6 +1,7 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
+import { below } from "../../styled"
 import Logo from "./Logo"
 import Nav from "./Nav"
 
@@ -42,9 +43,4 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
 
 export default styled(Header)`
   position: relative;
-  .logo {
-    border: 2px solid red;
-    display: block;
-    height: 100%;
-  }
 `

@@ -12,7 +12,6 @@ const NavList = styled.ul`
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #000;
   padding: 1em;
   li {
     z-index: 2;
@@ -20,6 +19,11 @@ const NavList = styled.ul`
   a {
     color: ${({ theme }) => theme.colors.elements.paragraph};
     font-size: 1.4em;
+    display: inline-block;
+    transition: ${({ theme }) => theme.transition.mainTransition};
+    &:hover {
+      color: ${({ theme }) => theme.colors.elements.button};
+    }
   }
 `
 
@@ -39,6 +43,5 @@ const Nav: React.FC<NavProps> = ({ className, navLinks }) => {
 }
 
 export default styled(Nav)`
-  border: 2px solid red;
   position: relative;
 `

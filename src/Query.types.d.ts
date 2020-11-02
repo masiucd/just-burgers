@@ -19,6 +19,9 @@ interface BgQuery {
   file: {
     publicURL: string
   }
+  stripes: {
+    publicURL: string
+  }
 }
 
 interface SeoQuery {

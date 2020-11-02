@@ -22,7 +22,7 @@ const HomePage: React.FC<PageProps<HomePageQuery, {}>> = ({ data }) => {
           consequatur nostrum accusamus temporibus voluptate sapiente,
           exercitationem, itaque, quibusdam blanditiis veritatis quidem
           reprehenderit atque necessitatibus autem quae possimus earum neque?
-          lorem500
+          lorem500 lorem500 lorem500 lorem500 lorem500
         </p>
       </Layout>
     </>

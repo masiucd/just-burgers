@@ -1,12 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { below } from "../../styled"
+import { above, below } from "../../styled"
 import stripes from "../../images/stripes.svg"
 
 const LogoStyles = styled.div`
-  /* width: 20rem;
-  height: 10rem; */
-
   font-size: 6px;
   font-size: clamp(1px, 0.65vw, 8px);
   width: 30em;
@@ -18,7 +15,7 @@ const LogoStyles = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   position: absolute;
   left: 50%;
-  bottom: -30%;
+  bottom: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
   display: flex;
@@ -65,9 +62,8 @@ const LogoStyles = styled.div`
       }
     }
   }
-
   @media ${below.mobileL} {
-    bottom: 20%;
+    bottom: 40%;
     width: 90%;
   }
 `
