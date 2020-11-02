@@ -24,7 +24,7 @@ const SEO_QUERY = graphql`
   }
 `
 
-export const Seo: React.FC<SeoProps> = ({ title, description, image = "" }) => {
+export const Seo: React.FC<SeoProps> = ({ title, description, image }) => {
   const {
     SEO: { siteMetadata },
   } = useStaticQuery<SeoQuery>(SEO_QUERY)
@@ -44,9 +44,17 @@ export const Seo: React.FC<SeoProps> = ({ title, description, image = "" }) => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charSet="utf-8" />
       <meta name="description" content={seo.description} />
+
       <meta name="image" content={seo.image} />
       <meta property="og:description" content={seo.description} />
+
+      <meta property="og:image" content={seo.image || "/logo.svg"} />
+      <meta property="og:title" content={seo.title} key="ogtitle" />
+      <meta property="og:site_name" content={seo.title} key="ogsitename" />
+      <meta property="og:description" content={seo.description} key="ogdesc" />
+
       <meta name="twitter:card" content="summary_large_image" />
+
       <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />

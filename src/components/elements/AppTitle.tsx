@@ -1,7 +1,7 @@
 import React from "react"
 
 interface AppTitleProps {
-  title: string
+  title?: string
   className: string
 }
 

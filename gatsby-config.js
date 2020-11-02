@@ -11,6 +11,24 @@ const twitterUsername = "@Ciszekmarcell"
 
 const siteImage = `images/dark-icon.png`
 const siteKeywords = ["gatsby", "typescript", "food", "javascript", "react"]
+const navigationLinks = [
+  {
+    name: "your favorites",
+    path: "favorites",
+  },
+  {
+    name: "burgers",
+    path: "burgers",
+  },
+  {
+    name: "chefs",
+    path: "chefs",
+  },
+  {
+    name: "order",
+    path: "order",
+  },
+]
 
 module.exports = {
   siteMetadata: {
@@ -22,6 +40,7 @@ module.exports = {
     keywords: siteKeywords,
     image: siteImage, // Path to your image you placed in the 'static' folder
     twitterUsername,
+    navigationLinks,
   },
   plugins: [
     {

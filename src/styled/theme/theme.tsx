@@ -28,8 +28,8 @@ const size = {
   h5: "1.25em",
   p: "1.15em",
   a: "1em",
-  maxWidth: "970px",
-  maxWidthPage: "1115px",
+  maxWidth: "1070px",
+  maxWidthPage: "970px",
 }
 const shadow = {
   elevations: [

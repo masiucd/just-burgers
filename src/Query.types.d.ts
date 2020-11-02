@@ -1,10 +1,15 @@
+interface Navigation {
+  name: string
+  path: string
+}
 interface SiteMetadata {
-  title: string
+  title?: string
   description?: string
   twitterUsername?: string
   titleTemplate?: string
   siteUrl?: string
   image?: string
+  navigationLinks?: Navigation[]
 }
 
 interface BgQuery {
@@ -18,4 +23,8 @@ interface BgQuery {
 
 interface SeoQuery {
   SEO: { siteMetadata: SiteMetadata }
+}
+
+interface NavQuery {
+  navData: { siteMetadata: SiteMetadata }
 }
