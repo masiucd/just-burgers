@@ -9,7 +9,7 @@ const siteUrl = "https://gatsby-starter-typescript-deluxe.netlify.com"
 const titleTemplate = `%s · ${siteTitle}`
 const twitterUsername = "@Ciszekmarcell"
 
-const siteImage = `images/favicons//android-chrome-512x512.png`
+const siteImage = `images/dark-icon.png`
 const siteKeywords = ["gatsby", "typescript", "food", "javascript", "react"]
 
 module.exports = {
@@ -67,18 +67,18 @@ module.exports = {
         shortName: siteTitle,
         description: siteDescription,
         startUrl: `/`,
-        backgroundColor: `#663399`,
-        themeColor: `#663399`,
+        backgroundColor: `#1565C0`,
+        themeColor: `#1565C0`,
         display: `minimal-ui`,
-        icon: "src/images/favicons/android-chrome-512x512.png",
+        icon: "src/images/dark-icon.png",
         icons: [
           {
-            src: "/images/favicons/android-chrome-512x512.png",
+            src: "icons/dark-icon512x512.png",
             sizes: "512x512",
             types: "image/png",
           },
           {
-            src: "/images/favicons/android-chrome-192x192.png",
+            src: "icons/dark_icon192x192.png",
             sizes: "192x192",
             types: "image/png",
           },
