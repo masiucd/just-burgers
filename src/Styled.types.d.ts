@@ -41,7 +41,7 @@ declare module "styled-components" {
       quickTransition: string
     }
     shadow: {
-      elevations: Array<string>
+      elevations: string[]
     }
   }
 }

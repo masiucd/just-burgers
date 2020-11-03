@@ -3,14 +3,33 @@ require("dotenv").config({
 })
 
 const siteTitle = "Just Burgers"
-const siteDescription = "Burgers store"
+const siteDescription = "Best Burgers you can find"
+const openHours = "open <span>10am</span> to <span>12pm</span> every day"
 const siteAuthor = "@ciszekmarcell"
 const siteUrl = "https://gatsby-starter-typescript-deluxe.netlify.com"
 const titleTemplate = `%s · ${siteTitle}`
 const twitterUsername = "@Ciszekmarcell"
 
-const siteImage = `images/favicons//android-chrome-512x512.png`
+const siteImage = `images/dark-icon.png`
 const siteKeywords = ["gatsby", "typescript", "food", "javascript", "react"]
+const navigationLinks = [
+  {
+    name: "your favorites",
+    path: "favorites",
+  },
+  {
+    name: "burgers",
+    path: "burgers",
+  },
+  {
+    name: "chefs",
+    path: "chefs",
+  },
+  {
+    name: "order",
+    path: "order",
+  },
+]
 
 module.exports = {
   siteMetadata: {
@@ -18,10 +37,12 @@ module.exports = {
     description: siteDescription,
     author: siteAuthor,
     siteUrl,
+    openHours,
     titleTemplate,
     keywords: siteKeywords,
     image: siteImage, // Path to your image you placed in the 'static' folder
     twitterUsername,
+    navigationLinks,
   },
   plugins: [
     {
@@ -67,22 +88,22 @@ module.exports = {
         shortName: siteTitle,
         description: siteDescription,
         startUrl: `/`,
-        backgroundColor: `#663399`,
-        themeColor: `#663399`,
+        backgroundColor: `#1565C0`,
+        themeColor: `#1565C0`,
         display: `minimal-ui`,
-        icon: "src/images/favicons/android-chrome-512x512.png",
-        // icons: [
-        //   {
-        //     src: "/images/android-chrome-512x512.png",
-        //     sizes: "512x512",
-        //     types: "image/png",
-        //   },
-        //   {
-        //     src: "/images/android-chrome-192x192.png",
-        //     sizes: "192x192",
-        //     types: "image/png",
-        //   },
-        // ],
+        icon: "src/images/dark-icon.png",
+        icons: [
+          {
+            src: "icons/dark-icon512x512.png",
+            sizes: "512x512",
+            types: "image/png",
+          },
+          {
+            src: "icons/dark_icon192x192.png",
+            sizes: "192x192",
+            types: "image/png",
+          },
+        ],
       },
     },
     `gatsby-plugin-offline`,

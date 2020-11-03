@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from "styled-components"
 import { mainTheme, GlobalStyles, Typography } from "../../styled/theme"
 import { graphql, useStaticQuery } from "gatsby"
 import Header from "./Header"
+import { below } from "../../styled"
 
 interface LayoutProps {
   title?: string
@@ -12,32 +13,38 @@ interface PageProps {
   bg: string
 }
 const Page = styled.div<PageProps>`
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
   background-image: ${props => `url(${props.bg})`};
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: 110vh;
 `
 
-const Main = styled.main`
-  margin: 0 auto;
-  max-width: ${props => props.theme.size.maxWidth};
-  border: 5px solid ${props => props.theme.colors.elements.bg};
+interface MainProps {
+  stripes: string
+}
+const Main = styled.main<MainProps>`
+  background: white ${props => `url(${props.stripes})`};
+  background-size: 2em;
+  border: 2px solid ${({ theme }) => theme.colors.illustrations.main};
   border-radius: ${({ theme }) => theme.borderRadius};
-  position: relative;
-  padding: 1em;
+  box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
   height: 100%;
-  background: ${props => props.theme.colors.elements.bg};
-  &:after {
-    content: "";
-    border: 5px dashed ${props => props.theme.colors.illustrations.tertiary};
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+  margin: 0 auto;
+  max-width: ${props => props.theme.size.maxWidthPage};
+  padding: 1em;
+  position: relative;
+  @media ${below.laptop} {
+    margin-top: 8rem;
   }
+`
+
+const App = styled.div`
+  background: ${({ theme }) => theme.colors.elements.bg};
+  height: 100%;
+  padding: 1em;
+  width: 100%;
 `
 
 const LAYOUT_QUERY = graphql`
@@ -48,7 +55,10 @@ const LAYOUT_QUERY = graphql`
         description
       }
     }
-    file(relativePath: { eq: "bg-img.svg" }) {
+    file(relativePath: { eq: "burger.svg" }) {
+      publicURL
+    }
+    stripes: file(relativePath: { eq: "clouds.svg" }) {
       publicURL
     }
   }
@@ -56,14 +66,17 @@ const LAYOUT_QUERY = graphql`
 
 const Layout: React.FC<LayoutProps> = ({ title, children }) => {
   const data = useStaticQuery<BgQuery>(LAYOUT_QUERY)
+
   return (
     <ThemeProvider theme={mainTheme}>
       <GlobalStyles />
       <Typography />
       <Page bg={data.file.publicURL}>
-        <Main>
-          <Header className="main-header" />
-          {children}
+        <Main stripes={data.stripes.publicURL}>
+          <App>
+            <Header className="main-header" />
+            {children}
+          </App>
         </Main>
       </Page>
     </ThemeProvider>

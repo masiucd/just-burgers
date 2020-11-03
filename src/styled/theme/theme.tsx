@@ -3,17 +3,17 @@ import { DefaultTheme } from "styled-components"
 const colors = {
   elements: {
     bg: "#fffffe",
-    headline: "#2b2c34",
-    paragraph: "#2b2c34",
-    button: "#6246ea",
-    buttonText: "#fffffe",
+    headline: "#00214d",
+    paragraph: "#1b2d45",
+    button: "#00ebc7",
+    buttonText: "#00214d",
   },
   illustrations: {
-    highlight: "#6246ea",
+    highlight: "#00ebc7",
     main: "#fffffe",
-    stroke: "#2b2c34",
-    secondary: "#d1d1e9",
-    tertiary: "#e45858",
+    stroke: "#00214d",
+    secondary: "#ff5470",
+    tertiary: "#fde24f",
   },
   shadow: {
     highlightShadow: "rgba(244,93,72,.8)",
@@ -28,8 +28,8 @@ const size = {
   h5: "1.25em",
   p: "1.15em",
   a: "1em",
-  maxWidth: "970px",
-  maxWidthPage: "1115px",
+  maxWidth: "1070px",
+  maxWidthPage: "970px",
 }
 const shadow = {
   elevations: [
