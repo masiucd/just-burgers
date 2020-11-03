@@ -55,16 +55,19 @@ export default styled(Header)`
     }
     @media ${below.mobileS} {
       .main-logo {
-        width: 100%;
         font-size: 4px;
         bottom: -70px;
       }
     }
     @media ${above.mobileS} {
       .main-logo {
-        width: 60em;
         font-size: 4px;
-        bottom: -91px;
+        bottom: -71px;
+      }
+    }
+    @media ${above.tablet} {
+      .main-logo {
+        bottom: -71px;
       }
     }
   }

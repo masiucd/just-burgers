@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from "styled-components"
 import { mainTheme, GlobalStyles, Typography } from "../../styled/theme"
 import { graphql, useStaticQuery } from "gatsby"
 import Header from "./Header"
+import { below } from "../../styled"
 
 interface LayoutProps {
   title?: string
@@ -12,12 +13,17 @@ interface PageProps {
   bg: string
 }
 const Page = styled.div<PageProps>`
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
   background-image: ${props => `url(${props.bg})`};
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: 100vh;
+  @media ${below.mobileL} {
+    /* background: red; */
+    /* padding-top: 123rem; */
+    min-height: 120vh;
+  }
 `
 
 interface MainProps {
@@ -26,21 +32,21 @@ interface MainProps {
 const Main = styled.main<MainProps>`
   background: white ${props => `url(${props.stripes})`};
   background-size: 2em;
+  border: 2px solid ${({ theme }) => theme.colors.illustrations.main};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
+  height: 100%;
   margin: 0 auto;
   max-width: ${props => props.theme.size.maxWidthPage};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  position: relative;
   padding: 1em;
-  height: 100%;
-  box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
-  border: 2px solid ${({ theme }) => theme.colors.illustrations.main};
+  position: relative;
 `
 
 const App = styled.div`
   background: ${({ theme }) => theme.colors.elements.bg};
-  width: 100%;
   height: 100%;
   padding: 1em;
+  width: 100%;
 `
 
 const LAYOUT_QUERY = graphql`

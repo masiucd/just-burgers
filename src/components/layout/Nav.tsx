@@ -14,15 +14,28 @@ const NavList = styled.ul`
   justify-content: space-between;
   padding: 1em;
   li {
-    z-index: 2;
   }
   a {
     color: ${({ theme }) => theme.colors.elements.paragraph};
     display: inline-block;
     font-size: 1.4em;
+    position: relative;
     transition: ${({ theme }) => theme.transition.mainTransition};
+    &::after {
+      content: "";
+      height: 2px;
+      width: 0;
+      background: ${({ theme }) => theme.colors.illustrations.secondary};
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: ${({ theme }) => theme.transition.quickTransition};
+    }
     &:hover {
       color: ${({ theme }) => theme.colors.elements.button};
+      &::after {
+        width: 100%;
+      }
     }
   }
 `

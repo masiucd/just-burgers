@@ -4,7 +4,7 @@ require("dotenv").config({
 
 const siteTitle = "Just Burgers"
 const siteDescription = "Best Burgers you can find"
-const openHours = "open 10am to 12pm every day"
+const openHours = "open <span>10am</span> to <span>12pm</span> every day"
 const siteAuthor = "@ciszekmarcell"
 const siteUrl = "https://gatsby-starter-typescript-deluxe.netlify.com"
 const titleTemplate = `%s · ${siteTitle}`
