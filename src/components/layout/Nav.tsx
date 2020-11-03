@@ -8,18 +8,18 @@ interface NavProps {
 }
 
 const NavList = styled.ul`
+  align-items: center;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: center;
   padding: 1em;
   li {
     z-index: 2;
   }
   a {
     color: ${({ theme }) => theme.colors.elements.paragraph};
-    font-size: 1.4em;
     display: inline-block;
+    font-size: 1.4em;
     transition: ${({ theme }) => theme.transition.mainTransition};
     &:hover {
       color: ${({ theme }) => theme.colors.elements.button};
@@ -34,7 +34,9 @@ const Nav: React.FC<NavProps> = ({ className, navLinks }) => {
         {navLinks &&
           navLinks.map(({ name, path }) => (
             <li key={name}>
-              <Link to={`/${path}`}>{name} </Link>
+              <Link activeStyle={{ color: "#e45858" }} to={`/${path}`}>
+                {name}{" "}
+              </Link>
             </li>
           ))}
       </NavList>

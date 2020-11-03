@@ -1,7 +1,7 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import { below } from "../../styled"
+import { above, below } from "../../styled"
 import Logo from "./Logo"
 import Nav from "./Nav"
 
@@ -45,16 +45,26 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
 export default styled(Header)`
   position: relative;
   .logo-link {
+    /* css hack to keep the same distance */
+    border: 2px solid transparent;
     display: block;
-    /* position: absolute; */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
+    position: relative;
+    .main-logo {
+      left: 50%;
+      position: absolute;
+    }
     @media ${below.mobileS} {
-      background: red;
       .main-logo {
         width: 100%;
+        font-size: 4px;
+        bottom: -70px;
+      }
+    }
+    @media ${above.mobileS} {
+      .main-logo {
+        width: 60em;
+        font-size: 4px;
+        bottom: -91px;
       }
     }
   }

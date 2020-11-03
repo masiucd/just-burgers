@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { above, below } from "../../styled"
 import clouds from "../../images/clouds.svg"
 
 const LogoStyles = styled.div`
@@ -17,6 +16,7 @@ const LogoStyles = styled.div`
   transform: translate(-50%, -50%);
   width: 30em;
   z-index: 3;
+
   .inner {
     align-items: center;
     background: ${props => props.theme.colors.illustrations.main};
@@ -28,10 +28,10 @@ const LogoStyles = styled.div`
     .est {
       color: ${props => props.theme.colors.illustrations.highlight};
       text-shadow: 2px 2px rgba(0, 0, 0, 0.05);
-      font-size: 3.2em;
+      font-size: 4.2em;
     }
     h1 {
-      font-size: 5em;
+      font-size: 7em;
 
       .just {
         display: block;
