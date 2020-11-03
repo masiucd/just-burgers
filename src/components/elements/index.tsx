@@ -1,3 +1,3 @@
-import { AppTitle } from "./AppTitle"
+import AppTitle from "./AppTitle"
 
 export { AppTitle }

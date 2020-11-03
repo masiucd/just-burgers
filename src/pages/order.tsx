@@ -5,7 +5,7 @@ import { Seo } from "../components/Seo"
 const OrdersPage = () => {
   return (
     <>
-      <Seo />
+      <Seo title="order" />
       <Layout>
         <h1>OrdersPage</h1>
         <p>

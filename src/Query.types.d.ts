@@ -10,6 +10,7 @@ interface SiteMetadata {
   siteUrl?: string
   image?: string
   navigationLinks?: Navigation[]
+  openHours: string
 }
 
 interface BgQuery {

@@ -3,19 +3,31 @@ import { graphql, PageProps } from "gatsby"
 import { AppTitle } from "../components/elements"
 import { Layout } from "../components/layout"
 import { Seo } from "../components/Seo"
+import { css } from "styled-components"
 
 interface HomePageQuery {
   siteData: { siteMetadata: SiteMetadata }
 }
 
+const cx = css`
+  text-align: center;
+`
+
 const HomePage: React.FC<PageProps<HomePageQuery, {}>> = ({ data }) => {
+  const {
+    siteData: { siteMetadata },
+  } = data
   return (
     <>
       <Seo title="home" />
       <Layout>
         <AppTitle
           className="Home-page-title"
-          title={data.siteData.siteMetadata.title}
+          style={cx}
+          title={
+            siteMetadata.description ? siteMetadata.description : "Just burgers"
+          }
+          subTitle={siteMetadata.openHours ? siteMetadata.openHours : ""}
         />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dolorem
@@ -32,7 +44,8 @@ export const HOME_PAGE_QUERY = graphql`
   {
     siteData: site {
       siteMetadata {
-        title
+        description
+        openHours
       }
     }
     file(relativePath: { eq: "light-icon.png" }) {
