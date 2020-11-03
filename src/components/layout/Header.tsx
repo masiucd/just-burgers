@@ -28,9 +28,10 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
       siteMetadata: { navigationLinks },
     },
   } = useStaticQuery<NavQuery>(HEADER_QUERY)
+
   return (
     <header className={className}>
-      <Link to="/" className="logo">
+      <Link to="/" className="logo-link">
         <Logo />
       </Link>
       <Nav
@@ -43,4 +44,18 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
 
 export default styled(Header)`
   position: relative;
+  .logo-link {
+    display: block;
+    /* position: absolute; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @media ${below.mobileS} {
+      background: red;
+      .main-logo {
+        width: 100%;
+      }
+    }
+  }
 `

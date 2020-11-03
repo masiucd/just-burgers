@@ -25,7 +25,7 @@ interface MainProps {
 }
 const Main = styled.main<MainProps>`
   background: white ${props => `url(${props.stripes})`};
-  background-size: 50em;
+  background-size: 2em;
   margin: 0 auto;
   max-width: ${props => props.theme.size.maxWidthPage};
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -51,10 +51,10 @@ const LAYOUT_QUERY = graphql`
         description
       }
     }
-    file(relativePath: { eq: "bg-img.svg" }) {
+    file(relativePath: { eq: "burger.svg" }) {
       publicURL
     }
-    stripes: file(relativePath: { eq: "stripes.svg" }) {
+    stripes: file(relativePath: { eq: "clouds.svg" }) {
       publicURL
     }
   }

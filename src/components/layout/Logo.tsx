@@ -1,33 +1,30 @@
 import React from "react"
 import styled from "styled-components"
 import { above, below } from "../../styled"
-import stripes from "../../images/stripes.svg"
+import clouds from "../../images/clouds.svg"
 
 const LogoStyles = styled.div`
-  font-size: 6px;
-  font-size: clamp(1px, 0.65vw, 8px);
-  width: 30em;
-  height: 30em;
-  margin: 0 auto;
-  background: white url(${stripes});
-  background-size: 150em;
-  border: 2px solid white;
+  background: white url(${clouds});
+  background-size: 2em;
+  border: 2px solid ${props => props.theme.colors.illustrations.main};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
   display: flex;
   flex-flow: row wrap;
+  font-size: 6px;
+  font-size: clamp(1px, 0.65vw, 8px);
+  height: 30em;
+  margin: 0 auto;
+  transform: translate(-50%, -50%);
+  width: 30em;
+  z-index: 3;
   .inner {
-    margin: 1em;
-    flex: 1;
-    background: white;
+    align-items: center;
+    background: ${props => props.theme.colors.illustrations.main};
     display: flex;
+    flex: 1;
     flex-flow: column wrap;
     justify-content: center;
-    align-items: center;
+    margin: 1em;
     .est {
       color: ${props => props.theme.colors.illustrations.highlight};
       text-shadow: 2px 2px rgba(0, 0, 0, 0.05);
@@ -62,15 +59,11 @@ const LogoStyles = styled.div`
       }
     }
   }
-  @media ${below.mobileL} {
-    bottom: 40%;
-    width: 90%;
-  }
 `
 
 const Logo = () => {
   return (
-    <LogoStyles>
+    <LogoStyles className="main-logo">
       <div className="inner">
         <span className="est">EST 1999</span>
         <h1>
