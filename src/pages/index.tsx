@@ -4,6 +4,8 @@ import { AppTitle } from "../components/elements"
 import { Layout } from "../components/layout"
 import { Seo } from "../components/Seo"
 import { css } from "styled-components"
+import { TwoColumnGrid } from "../styled"
+import { ChefsGallery } from "../components/chefs"
 
 interface HomePageQuery {
   siteData: { siteMetadata: SiteMetadata }
@@ -29,13 +31,26 @@ const HomePage: React.FC<PageProps<HomePageQuery, {}>> = ({ data }) => {
           }
           subTitle={siteMetadata.openHours ? siteMetadata.openHours : ""}
         />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dolorem
-          consequatur nostrum accusamus temporibus voluptate sapiente,
-          exercitationem, itaque, quibusdam blanditiis veritatis quidem
-          reprehenderit atque necessitatibus autem quae possimus earum neque?
-          lorem500 lorem500 lorem500 lorem500 lorem500
-        </p>
+        {/* Grid here */}
+        <TwoColumnGrid>
+          <div style={{ padding: "2em" }}>
+            <strong>The masters</strong>
+            <ChefsGallery />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+            dolorem consequatur nostrum accusamus temporibus voluptate sapiente,
+            exercitationem, itaque, quibusdam blanditiis veritatis quidem
+            reprehenderit atque necessitatibus autem quae possimus earum neque?
+            lorem500 lorem500 lorem500 lorem500 lorem500
+          </div>
+          <div style={{ padding: "2em" }}>
+            <strong>The burgers</strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+            dolorem consequatur nostrum accusamus temporibus voluptate sapiente,
+            exercitationem, itaque, quibusdam blanditiis veritatis quidem
+            reprehenderit atque necessitatibus autem quae possimus earum neque?
+            lorem500 lorem500 lorem500 lorem500 lorem500
+          </div>
+        </TwoColumnGrid>
       </Layout>
     </>
   )

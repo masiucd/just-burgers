@@ -32,3 +32,25 @@ interface SeoQuery {
 interface NavQuery {
   navData: { siteMetadata: SiteMetadata }
 }
+
+interface MapObject<T> {
+  [key: string]: T
+}
+
+interface Chef {
+  node: {
+    name: string
+    about: string
+    image: {
+      fluid: {
+        src: string
+      }
+    }
+  }
+}
+
+interface ChefsQuery {
+  chefs: {
+    edges: Chef[]
+  }
+}
