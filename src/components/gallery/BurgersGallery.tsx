@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
+import ImageItem from "./ImageItem"
 
 interface BurgersGalleryProps {}
 
@@ -38,8 +39,8 @@ const BurgersGallery: React.FC<BurgersGalleryProps> = ({}) => {
 
   return (
     <BurgersGrid>
-      {edges.map(burger => (
-        <p key={burger.node.id}> {burger.node.name} </p>
+      {edges.map(({ node }) => (
+        <ImageItem key={node.id} item={node} />
       ))}
     </BurgersGrid>
   )

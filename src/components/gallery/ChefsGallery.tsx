@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import ChefItem from "./ChefItem"
+import ImageItem from "./ImageItem"
 
 const CHEFS_QUERY = graphql`
   {
@@ -24,7 +24,7 @@ const CHEFS_QUERY = graphql`
 
 const ChefsGrid = styled.section`
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
 `
 
@@ -35,7 +35,7 @@ const ChefsGallery = () => {
   return (
     <ChefsGrid>
       {edges.map(({ node }) => (
-        <ChefItem key={node.id} chef={node} />
+        <ImageItem key={node.id} item={node} />
       ))}
     </ChefsGrid>
   )

@@ -4,9 +4,7 @@ import { AppTitle } from "../components/elements"
 import { Layout } from "../components/layout"
 import { Seo } from "../components/Seo"
 import { css } from "styled-components"
-import { Column, Strong, TwoColumnGrid } from "../styled"
-import { ChefsGallery } from "../components/chefs"
-import { BurgersGallery } from "../components/burgers"
+import { Gallery } from "../components/gallery"
 
 interface HomePageQuery {
   siteData: { siteMetadata: SiteMetadata }
@@ -28,16 +26,7 @@ const HomePage: React.FC<PageProps<HomePageQuery, {}>> = ({ data }) => {
           }
           subTitle={siteMetadata.openHours ? siteMetadata.openHours : ""}
         />
-        <TwoColumnGrid>
-          <Column padding=".5rem">
-            <Strong>The masters</Strong>
-            <ChefsGallery />
-          </Column>
-          <Column padding=".5rem">
-            <Strong>The burgers</Strong>
-            <BurgersGallery />
-          </Column>
-        </TwoColumnGrid>
+        <Gallery />
       </Layout>
     </>
   )
