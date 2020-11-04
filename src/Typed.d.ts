@@ -49,8 +49,22 @@ interface Chef {
   }
 }
 
+interface Burger {
+  id: string
+  name: string
+  image: {
+    fluid: MapObject<any>
+  }
+}
+
 interface ChefsQuery {
   chefs: {
     edges: NodeType<Chef>[]
+  }
+}
+
+interface BurgersQuery {
+  burgers: {
+    edges: NodeType<Burger>[]
   }
 }

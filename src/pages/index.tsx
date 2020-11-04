@@ -6,6 +6,7 @@ import { Seo } from "../components/Seo"
 import { css } from "styled-components"
 import { Column, Strong, TwoColumnGrid } from "../styled"
 import { ChefsGallery } from "../components/chefs"
+import { BurgersGallery } from "../components/burgers"
 
 interface HomePageQuery {
   siteData: { siteMetadata: SiteMetadata }
@@ -34,13 +35,7 @@ const HomePage: React.FC<PageProps<HomePageQuery, {}>> = ({ data }) => {
           </Column>
           <Column padding=".5rem">
             <Strong>The burgers</Strong>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-              dolorem consequatur nostrum accusamus temporibus voluptate
-              sapiente, exercitationem, itaque, quibusdam blanditiis veritatis
-              quidem reprehenderit atque necessitatibus autem quae possimus
-              earum neque? lorem500 lorem500 lorem500 lorem500 lorem500
-            </p>
+            <BurgersGallery />
           </Column>
         </TwoColumnGrid>
       </Layout>
