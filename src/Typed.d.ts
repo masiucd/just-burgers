@@ -68,3 +68,12 @@ interface BurgersQuery {
     edges: NodeType<Burger>[]
   }
 }
+
+// type TextKeyType = "mastersCapture" | "burgersCapture"
+interface TextKeyMap {
+  mastersCapture: string
+  burgersCapture: string
+}
+type TextKey<T> = {
+  readonly [key in keyof T]: T[key]
+}

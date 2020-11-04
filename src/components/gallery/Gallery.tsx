@@ -3,28 +3,24 @@ import { Column, Strong, TwoColumnGrid } from "../../styled"
 import BurgersGallery from "./BurgersGallery"
 import ChefsGallery from "./ChefsGallery"
 import styled from "styled-components"
+import useTextKey from "../../hooks/useTextKey"
+import { RenderHtml } from "../../componentUtils"
 
 const GalleryWrapper = styled.div``
 const Gallery = () => {
+  const { t } = useTextKey()
+
   return (
     <GalleryWrapper>
       <TwoColumnGrid>
         <Column padding=".5rem">
           <Strong>The masters</Strong>
-          <p>
-            Our famous chefs that putting all the love into the Burgers that
-            make a huge difference compared to a regular burger. Some say, the
-            best team in the world, they are called the Vipers!
-          </p>
+          <RenderHtml text={t("mastersCapture")} />
           <ChefsGallery />
         </Column>
         <Column padding=".5rem">
           <Strong>The burgers</Strong>
-          <p>
-            And this is the art our top chefs are producing, Burgers with high
-            quality and a lot of love. All from vegetarian lovers to meat
-            lovers, pick your favorite ore to make your custom order!
-          </p>
+          <RenderHtml text={t("burgersCapture")} />
           <BurgersGallery />
         </Column>
       </TwoColumnGrid>
