@@ -4,6 +4,7 @@ import { mainTheme, GlobalStyles, Typography } from "../../styled/theme"
 import { graphql, useStaticQuery } from "gatsby"
 import Header from "./Header"
 import { below } from "../../styled"
+import Footer from "./Footer"
 
 interface LayoutProps {
   title?: string
@@ -76,6 +77,10 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
           <App>
             <Header className="main-header" />
             {children}
+            <Footer
+              className="main-footer"
+              title={data.site.siteMetadata.title}
+            />
           </App>
         </Main>
       </Page>
