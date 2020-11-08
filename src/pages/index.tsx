@@ -10,6 +10,12 @@ interface HomePageQuery {
   siteData: { siteMetadata: SiteMetadata }
 }
 
+const cx = css`
+  div {
+    text-align: center;
+  }
+`
+
 const HomePage: React.FC<PageProps<HomePageQuery, {}>> = ({ data }) => {
   const {
     siteData: { siteMetadata },
@@ -50,7 +56,3 @@ export const HOME_PAGE_QUERY = graphql`
 `
 
 export default HomePage
-
-const cx = css`
-  text-align: center;
-`

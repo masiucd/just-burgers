@@ -1,15 +1,18 @@
+import { RenderHtml } from "@components/componentUtils"
 import React from "react"
-import styled, { DefaultTheme, ThemedCssFunction } from "styled-components"
+import styled, { FlattenSimpleInterpolation } from "styled-components"
 interface AppTitleProps {
   title: string
   subTitle?: string
+  desc?: string
   className: string
-  style?: ThemedCssFunction<DefaultTheme>
+  style?: FlattenSimpleInterpolation
 }
 
 const AppTitle: React.FC<AppTitleProps> = ({
   title,
   subTitle,
+  desc,
   className,
   style,
 }) => {
@@ -17,12 +20,8 @@ const AppTitle: React.FC<AppTitleProps> = ({
     <section className={className}>
       <h2>{title}</h2>
 
-      {subTitle && (
-        <div
-          className="subtitle"
-          dangerouslySetInnerHTML={{ __html: subTitle }}
-        />
-      )}
+      {subTitle && <RenderHtml className="subtitle" text={subTitle} />}
+      {desc && <RenderHtml className="descText" text={desc} />}
     </section>
   )
 }

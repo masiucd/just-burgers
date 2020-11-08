@@ -77,6 +77,7 @@ interface BurgersQuery {
 interface TextKeyMap {
   mastersCapture: string
   burgersCapture: string
+  ourBurgersDesc: string
 }
 type TextKey<T> = {
   readonly [key in keyof T]: T[key]

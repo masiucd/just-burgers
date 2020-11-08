@@ -18,3 +18,8 @@ export const BurgersGrid = styled.section`
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
 `
+
+export const Grid = styled(BurgersGrid)`
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+`

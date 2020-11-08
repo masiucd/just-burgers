@@ -5,6 +5,9 @@ const textKeys: TextKey<TextKeyMap> = {
   burgersCapture: `<p>And this is the art our top chefs are producing, Burgers with high
   quality and a lot of love. All from vegetarian lovers to meat
   lovers, pick your favorite ore to make your custom order!</p>`,
+  ourBurgersDesc: `<p className="ourBurgersDesc">We Put a lot of love into our burgers, pick your favorite burger without any hesitate.abs
+   A nice side like, <span> sweet-potato </span> <span>fries</span> ore regular fries to it with a cold soda, nothing can't beat that.</p>
+  `,
 }
 
 export default textKeys

@@ -2,9 +2,11 @@ import * as React from "react"
 import { Layout } from "@components/layout"
 import { Seo } from "@components/Seo"
 import { graphql, PageProps } from "gatsby"
-import { Burgers } from "@components/food"
+import { Burger } from "@components/food"
 import { AppTitle } from "@components/elements"
-import { BurgersGrid } from "@styled/Wrappers"
+import { Grid } from "@styled/Wrappers"
+import useTextKey from "@hooks/useTextKey"
+import { css } from "styled-components"
 interface BurgersPageProps {
   burgers: {
     edges: NodeType<Burger>[]
@@ -14,17 +16,30 @@ interface BurgersPageProps {
   }
 }
 
+const cx = css`
+  p {
+    font-size: 20px;
+  }
+`
+
 const BurgersPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
+  const { t } = useTextKey()
   return (
     <>
       <Seo title="burgers" description="our burgers" />
       <Layout>
-        <AppTitle title="Our menu" subTitle="pick and choice your favorite" />
-        <BurgersGrid>
+        <AppTitle
+          className="burgers-title"
+          title="Our menu"
+          subTitle="pick and choice your favorite"
+          desc={t("ourBurgersDesc")}
+          style={cx}
+        />
+        <Grid>
           {data.burgers.edges.map(burger => (
-            <Burgers key={burger.node.id} burger={burger.node} />
+            <Burger key={burger.node.id} burger={burger.node} />
           ))}
-        </BurgersGrid>
+        </Grid>
       </Layout>
     </>
   )
