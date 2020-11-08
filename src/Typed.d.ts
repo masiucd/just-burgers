@@ -52,8 +52,12 @@ interface Chef {
 interface Burger {
   id: string
   name: string
+  price?: number
   image: {
     fluid: MapObject<any>
+  }
+  ingredients?: {
+    ingredients: string[]
   }
 }
 

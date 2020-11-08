@@ -3,8 +3,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import ImageItem from "./ImageItem"
 
-interface BurgersGalleryProps {}
-
 export const BURGERS_GALLERY_QUERY = graphql`
   {
     burgers: allContentfulBurgers(
@@ -32,7 +30,7 @@ const BurgersGrid = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
 `
 
-const BurgersGallery: React.FC<BurgersGalleryProps> = ({}) => {
+const BurgersGallery = () => {
   const {
     burgers: { edges },
   } = useStaticQuery<BurgersQuery>(BURGERS_GALLERY_QUERY)
