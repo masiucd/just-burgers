@@ -1,6 +1,7 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+const path = require("path")
 
 const siteTitle = "Just Burgers"
 const siteDescription = "Best Burgers you can find"
@@ -50,6 +51,18 @@ module.exports = {
       options: {
         path: `${__dirname}/src/images`,
         name: "images",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          // "@components": path.resolve(__dirname, "src/components"),
+          "@components": "src/components",
+          "@hooks": "src/hooks",
+          "@styled": "src/styled",
+        },
+        extensions: ["ts", "tsx", "js"],
       },
     },
     {

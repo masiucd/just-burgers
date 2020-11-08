@@ -4,7 +4,7 @@ import BurgersGallery from "./BurgersGallery"
 import ChefsGallery from "./ChefsGallery"
 import styled from "styled-components"
 import useTextKey from "../../hooks/useTextKey"
-import { RenderHtml } from "../../componentUtils"
+import { RenderHtml } from "../componentUtils"
 
 const GalleryWrapper = styled.div``
 const Gallery = () => {

@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from "styled-components"
 import { mainTheme, GlobalStyles, Typography } from "../../styled/theme"
 import { graphql, useStaticQuery } from "gatsby"
 import Header from "./Header"
-import { below } from "../../styled"
+import { below } from "@styled/mediaQuery"
 import Footer from "./Footer"
 
 interface LayoutProps {
