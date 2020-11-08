@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import styled from "styled-components"
 import ImageItem from "./ImageItem"
+import { BurgersGrid } from "@styled/Wrappers"
 
 export const BURGERS_GALLERY_QUERY = graphql`
   {
@@ -22,12 +22,6 @@ export const BURGERS_GALLERY_QUERY = graphql`
       }
     }
   }
-`
-
-const BurgersGrid = styled.section`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
 `
 
 const BurgersGallery = () => {

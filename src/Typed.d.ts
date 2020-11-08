@@ -81,3 +81,12 @@ interface TextKeyMap {
 type TextKey<T> = {
   readonly [key in keyof T]: T[key]
 }
+
+interface Side {
+  id: string
+  title: string
+  price: number
+  image: {
+    fluid: MapObject<any>
+  }
+}

@@ -12,3 +12,9 @@ interface ColumnProps {
 export const Column = styled.div<ColumnProps>`
   padding: ${({ padding }) => (padding ? padding : "1rem")};
 `
+
+export const BurgersGrid = styled.section`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+`
