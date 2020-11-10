@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import GatsbyImage from "gatsby-image"
+import { Link } from "gatsby"
 
 interface BurgersProps {
   burger: Burger
@@ -8,14 +9,40 @@ interface BurgersProps {
 
 const BurgerItem = styled.div`
   box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
-
-  .body {
+  width: 100%;
+  .head {
+    border-bottom: 2px solid ${({ theme }) => theme.colors.illustrations.stroke};
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 10px;
+    justify-content: space-between;
+    p {
+      font-size: 1.8em;
+      &:first-child {
+        background: ${({ theme }) => theme.colors.illustrations.highlight};
+        padding: 0.1em;
+        box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
+      }
+    }
   }
 
   .ingredients {
-    background: red;
     display: flex;
     flex-flow: column wrap;
+    font-size: 10px;
+    padding: 1em;
+    p {
+      font-size: 2em;
+    }
+    .ingredients-wrapper {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      span {
+        border-bottom: 2px solid #333;
+        font-size: 1.45em;
+      }
+    }
   }
 `
 
@@ -23,15 +50,20 @@ const Burgers: React.FC<BurgersProps> = ({ burger }) => {
   return (
     <BurgerItem>
       <GatsbyImage fluid={burger.image.fluid} alt={`burget-${burger.name}`} />
-      <div className="body">
-        <p>{burger.name}</p>
-        <p>{burger.price}$</p>
-      </div>
+      <Link to={`/burger/${burger.name}`}>
+        <div className="head">
+          <p>{burger.name}</p>
+          <p>{burger.price}$</p>
+        </div>
+      </Link>
+
       <div className="ingredients">
         <p>Main ingredients</p>
-        {burger.ingredients?.ingredients.map(x => (
-          <span key={x}>{x}</span>
-        ))}
+        <div className="ingredients-wrapper">
+          {burger.ingredients?.ingredients.map(ingredient => (
+            <span key={ingredient}>{ingredient}</span>
+          ))}
+        </div>
       </div>
     </BurgerItem>
   )
