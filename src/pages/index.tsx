@@ -1,10 +1,10 @@
 import * as React from "react"
 import { graphql, PageProps } from "gatsby"
-import { AppTitle } from "../components/elements"
-import { Layout } from "../components/layout"
-import { Seo } from "../components/Seo"
+import { AppTitle } from "@components/elements"
+import { Layout } from "@components/layout"
+import { Seo } from "@components/Seo"
 import { css } from "styled-components"
-import { Gallery } from "../components/gallery"
+import { Gallery } from "@components/gallery"
 
 interface HomePageQuery {
   siteData: { siteMetadata: SiteMetadata }

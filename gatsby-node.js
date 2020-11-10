@@ -5,3 +5,37 @@
  */
 
 // You can delete this file if you're not using it
+const path = require("path")
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  const result = await graphql(`
+    {
+      burgers: allContentfulBurgers {
+        edges {
+          node {
+            id
+            name
+          }
+        }
+      }
+    }
+  `)
+
+  const { edges: burgerData } = result.data.burgers
+
+  burgerData.forEach(({ node }) => {
+    const slug = node.name
+      .split(" ")
+      .join("-")
+      .toLowerCase()
+
+    createPage({
+      path: `/burger/${slug}`,
+      component: path.resolve(`./src/templates/burger-template.tsx`),
+      context: {
+        slug,
+      },
+    })
+  })
+}
