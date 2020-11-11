@@ -54,11 +54,13 @@ interface Burger {
   name: string
   price?: number
   slug?: string
+  vegetarian?: boolean
   desc?: {
     desc: string
   }
-  image: {
+  image?: {
     fluid: MapObject<any>
+    fixed: MapObject<any>
   }
   ingredients?: {
     ingredients: string[]
