@@ -15,7 +15,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
-            name
+            slug
           }
         }
       }
@@ -25,11 +25,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const { edges: burgerData } = result.data.burgers
 
   burgerData.forEach(({ node }) => {
-    const slug = node.name
-      .split(" ")
-      .join("-")
-      .toLowerCase()
-
+    const { slug } = node
+    console.log(slug)
     createPage({
       path: `/burger/${slug}`,
       component: path.resolve(`./src/templates/burger-template.tsx`),

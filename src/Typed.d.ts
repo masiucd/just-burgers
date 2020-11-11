@@ -53,6 +53,7 @@ interface Burger {
   id: string
   name: string
   price?: number
+  slug?: string
   image: {
     fluid: MapObject<any>
   }
