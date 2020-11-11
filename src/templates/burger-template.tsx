@@ -3,6 +3,7 @@ import { Seo } from "@components/Seo"
 import { graphql, PageProps } from "gatsby"
 import React from "react"
 import GatsbyImage from "gatsby-image"
+
 interface BurgerDataProps {
   burger: Burger
 }
