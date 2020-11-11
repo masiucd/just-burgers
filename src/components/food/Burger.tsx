@@ -3,7 +3,7 @@ import styled from "styled-components"
 import GatsbyImage from "gatsby-image"
 import { Link } from "gatsby"
 
-interface BurgersProps {
+interface BurgerProps {
   burger: Burger
 }
 
@@ -46,11 +46,11 @@ const BurgerItem = styled.div`
   }
 `
 
-const Burgers: React.FC<BurgersProps> = ({ burger }) => {
+const Burger: React.FC<BurgerProps> = ({ burger }) => {
   return (
     <BurgerItem>
-      <GatsbyImage fluid={burger.image.fluid} alt={`burget-${burger.name}`} />
-      <Link to={`/burger/${burger.name}`}>
+      <GatsbyImage fluid={burger.image.fluid} alt={`burger-${burger.slug}`} />
+      <Link to={`/burger/${burger.slug}`}>
         <div className="head">
           <p>{burger.name}</p>
           <p>{burger.price}$</p>
@@ -68,4 +68,4 @@ const Burgers: React.FC<BurgersProps> = ({ burger }) => {
     </BurgerItem>
   )
 }
-export default Burgers
+export default Burger
