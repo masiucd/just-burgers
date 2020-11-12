@@ -5,6 +5,8 @@ import React from "react"
 import GatsbyImage from "gatsby-image"
 import styled from "styled-components"
 import { above } from "@styled/mediaQuery"
+import { motion } from "framer-motion"
+import { useToggle } from "@hooks/useToggle"
 interface BurgerDataProps {
   burger: Burger
 }
@@ -17,14 +19,34 @@ const BurgerItem = styled.section`
   border-radius: ${({ theme }) => theme.borderRadius};
   height: 100%;
   width: 100%;
+  @media ${above.tablet} {
+    min-width: 520px;
+  }
+  @media ${above.tabletL} {
+    min-width: 700px;
+  }
+  @media ${above.laptop} {
+    min-width: 900px;
+  }
 `
 
-const ImageWrapper = styled.div``
-const BurgerBody = styled.div`
+interface ImageWrapperProps {
+  on: boolean
+}
+const ImageWrapper = styled.div<ImageWrapperProps>`
+  border: 1px solid ${({ on }) => on && "green"};
+`
+
+const BurgerBody = styled(motion.div)`
   background: ${({ theme }) => theme.colors.elements.bg};
   font-size: 10px;
+  left: 35px;
+  margin: 0 auto;
   padding: 1em 3em;
-  position: relative;
+  position: absolute;
+  width: 700px;
+  z-index: 900;
+
   p {
     font-size: 2em;
   }
@@ -34,10 +56,12 @@ const BurgerBody = styled.div`
   }
   .name-price {
     align-items: center;
+    background: ${({ theme }) => theme.colors.elements.bg};
     display: flex;
     justify-content: space-between;
   }
   .animated-info {
+    background: ${({ theme }) => theme.colors.elements.bg};
     border: 2px solid red;
     display: flex;
     flex-flow: column wrap;
@@ -65,15 +89,15 @@ const BurgerBody = styled.div`
       position: relative;
       transition: ${({ theme: { transition } }) => transition.mainTransition};
       &:after {
-        content: "";
-        position: absolute;
-        transition: ${({ theme: { transition } }) => transition.mainTransition};
-        width: 0;
-        height: 3px;
         background: ${({ theme: { colors } }) =>
           colors.illustrations.highlight};
         bottom: 0;
+        content: "";
+        height: 3px;
         left: 0;
+        position: absolute;
+        transition: ${({ theme: { transition } }) => transition.mainTransition};
+        width: 0;
       }
       &:hover {
         text-shadow: 1px 1px 1px #333;
@@ -89,18 +113,33 @@ const BurgerTemplate: React.FC<PageProps<
   BurgerDataProps,
   PageContextProps
 >> = ({ data: { burger }, pageContext }) => {
+  const { state, toggle, setStateToFalse, setStateToTrue } = useToggle()
+
+  const variants = {
+    hidden: { opacity: 0, y: "110%" },
+    visible: { opacity: 1, y: "-335px" },
+    exit: { opacity: 0, height: 0 },
+  }
   return (
     <>
       <Seo title="burger" />
       <Layout>
         <BurgerItem>
-          <ImageWrapper>
+          <ImageWrapper
+            on={state}
+            onMouseEnter={setStateToTrue}
+            onMouseLeave={setStateToFalse}
+          >
             <GatsbyImage
               fluid={burger.image?.fluid}
               alt={`burger-${burger.slug}`}
             />
           </ImageWrapper>
-          <BurgerBody>
+          <BurgerBody
+            initial="hidden"
+            animate={state ? "visible" : "hidden"}
+            variants={variants}
+          >
             <div className="name-price">
               <p> {burger.name} </p>
               <small>{burger.price}$</small>
