@@ -28,9 +28,18 @@ export const ImageWrapper = styled.div`
   &:hover {
     box-shadow: 0 0 12px #333;
   }
+  &:after {
+    background: rgba(0, 0, 0, 0.27);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 `
 
-export const BurgerBody = styled.div`
+export const BurgerBody = styled(motion.div)`
   background: ${({ theme }) => theme.colors.elements.bg};
   display: flex;
   flex-flow: column wrap;
@@ -172,13 +181,28 @@ export const BurgerTitle = styled(motion.div)`
   cursor: pointer;
   font-size: 10px;
   left: 50%;
+  padding: 5em 2em;
   position: absolute;
-  top: 30%;
+  top: 20%;
   transform: translate(-50%, -50%);
+  transition: ${({ theme: { transition } }) => transition.quickTransition};
   z-index: 3;
   h4 {
     box-shadow: 2px 2px 0 0 ${({ theme }) => theme.colors.illustrations.main};
     color: ${({ theme }) => theme.colors.illustrations.main};
-    font-size: 6em;
+    font-size: 3em;
+    transition: ${({ theme: { transition } }) => transition.quickTransition};
+    @media ${above.tablet} {
+      font-size: 6em;
+    }
+    &:hover {
+      box-shadow: 2px 2px 0 0
+        ${({ theme }) => theme.colors.illustrations.secondary};
+      color: ${({ theme }) => theme.colors.illustrations.secondary};
+    }
+  }
+  &:hover {
+    font-size: 10.2px;
+    top: 21.5%;
   }
 `

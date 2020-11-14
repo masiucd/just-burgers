@@ -13,6 +13,7 @@ import {
   Ingredients,
   NamePrice,
 } from "./burger-styles"
+import { AnimatePresence } from "framer-motion"
 interface BurgerDataProps {
   burger: Burger
 }
@@ -24,7 +25,7 @@ const BurgerTemplate: React.FC<PageProps<
   BurgerDataProps,
   PageContextProps
 >> = ({ data: { burger }, pageContext }) => {
-  const { state, toggle } = useToggle()
+  const { state: on, toggle } = useToggle()
 
   const infoVariants = {
     open: { opacity: 1, x: 0, height: "auto" },
@@ -45,43 +46,55 @@ const BurgerTemplate: React.FC<PageProps<
               alt={`burger-${burger.slug}`}
             />
           </ImageWrapper>
-          <BurgerBody>
-            <div className="column-flex-column">
-              <NamePrice>
-                <p> {burger.name} </p>
-                <small>{burger.price}$</small>
-              </NamePrice>
-              <AnimatedInfo
-                vegetarian={burger.vegetarian}
-                initial="closed"
-                animate={state ? "open" : "closed"}
-                variants={infoVariants}
-                transition={{ duration: 0.4, damping: 8 }}
-              >
-                <p> {burger.desc?.desc} </p>
-                <p>
-                  {burger.vegetarian
-                    ? "for the green lovers 🥗 "
-                    : "for the meet lovers 🥩"}{" "}
-                </p>
-              </AnimatedInfo>
-            </div>
-            <div className="column-flex-row">
-              <Ingredients
-                initial="closed"
-                animate={state ? "open" : "closed"}
-                variants={ingredientsVariants}
-                transition={{ duration: 0.4, damping: 8 }}
-              >
-                {burger.ingredients?.ingredients.map(ingredient => (
-                  <li key={ingredient}>{ingredient}</li>
-                ))}
-              </Ingredients>
-            </div>
-          </BurgerBody>
+          <AnimatePresence>
+            <BurgerBody
+              key="burger-body"
+              initial={{ opacity: 0 }}
+              animate={
+                on
+                  ? { opacity: 1, transition: { duration: 0.3 } }
+                  : { opacity: 0 }
+              }
+              exit={{ opacity: 0 }}
+            >
+              <div className="column-flex-column">
+                <NamePrice>
+                  <p> {burger.name} </p>
+                  <small>{burger.price}$</small>
+                </NamePrice>
+                <AnimatedInfo
+                  vegetarian={burger.vegetarian}
+                  initial="closed"
+                  animate={on ? "open" : "closed"}
+                  variants={infoVariants}
+                  transition={{ duration: 0.6, damping: 8 }}
+                >
+                  <p> {burger.desc?.desc} </p>
+                  <p>
+                    {burger.vegetarian
+                      ? "for the green lovers 🥗 "
+                      : "for the meet lovers 🥩"}{" "}
+                  </p>
+                </AnimatedInfo>
+              </div>
+              <div className="column-flex-row">
+                <Ingredients
+                  initial="closed"
+                  animate={on ? "open" : "closed"}
+                  variants={ingredientsVariants}
+                  transition={{ duration: 0.6, damping: 8 }}
+                >
+                  {burger.ingredients?.ingredients.map(ingredient => (
+                    <li key={ingredient}>{ingredient}</li>
+                  ))}
+                </Ingredients>
+              </div>
+            </BurgerBody>
+          </AnimatePresence>
           <BurgerTitle
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, x: "1000%" }}
+            animate={{ opacity: 1, x: "-50%" }}
+            transition={{ damping: 6, duration: 0.25 }}
             onClick={toggle}
           >
             <h4>{burger.name} ⬇ </h4>
