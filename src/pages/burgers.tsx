@@ -54,6 +54,7 @@ export const BURGERS_QUERY = graphql`
           name
           price
           slug
+          vegetarian
           image {
             fluid(maxHeight: 500, maxWidth: 500, quality: 90) {
               ...GatsbyContentfulFluid_tracedSVG

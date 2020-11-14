@@ -8,6 +8,7 @@ import {
   AnimatedInfo,
   BurgerBody,
   BurgerItem,
+  BurgerTitle,
   ImageWrapper,
   Ingredients,
   NamePrice,
@@ -23,7 +24,7 @@ const BurgerTemplate: React.FC<PageProps<
   BurgerDataProps,
   PageContextProps
 >> = ({ data: { burger }, pageContext }) => {
-  const { state, setStateToTrue } = useToggle()
+  const { state, toggle } = useToggle()
 
   const infoVariants = {
     open: { opacity: 1, x: 0, height: "auto" },
@@ -38,7 +39,7 @@ const BurgerTemplate: React.FC<PageProps<
       <Seo title="burger" />
       <Layout>
         <BurgerItem>
-          <ImageWrapper onMouseEnter={setStateToTrue}>
+          <ImageWrapper>
             <GatsbyImage
               fluid={burger.image?.fluid}
               alt={`burger-${burger.slug}`}
@@ -78,6 +79,13 @@ const BurgerTemplate: React.FC<PageProps<
               </Ingredients>
             </div>
           </BurgerBody>
+          <BurgerTitle
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            onClick={toggle}
+          >
+            <h4>{burger.name} ⬇ </h4>
+          </BurgerTitle>
         </BurgerItem>
       </Layout>
     </>
@@ -108,8 +116,3 @@ export const BURGER_TEMPLATE_QUERY = graphql`
 `
 
 export default BurgerTemplate
-// maxHeight: 500, maxWidth: 500, quality: 90
-
-// # fixed(quality: 100, width: 600, height: 500) {
-//   #   ...GatsbyContentfulFixed
-//   # }

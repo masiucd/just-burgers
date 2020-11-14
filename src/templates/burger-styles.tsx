@@ -167,3 +167,18 @@ export const Ingredients = styled(motion.ul)`
     }
   }
 `
+
+export const BurgerTitle = styled(motion.div)`
+  cursor: pointer;
+  font-size: 10px;
+  left: 50%;
+  position: absolute;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  h4 {
+    box-shadow: 2px 2px 0 0 ${({ theme }) => theme.colors.illustrations.main};
+    color: ${({ theme }) => theme.colors.illustrations.main};
+    font-size: 6em;
+  }
+`
