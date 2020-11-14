@@ -18,33 +18,33 @@ export const BurgerItem = styled.section`
   }
 `
 
-interface ImageWrapperProps {
-  on: boolean
-}
-export const ImageWrapper = styled.div<ImageWrapperProps>`
-  border: 1px solid ${({ on }) => on && "green"};
+export const ImageWrapper = styled.div`
+  box-shadow: 0 0 3px #333;
+  height: 100%;
   position: relative;
+  transition: 200ms ease-in-out box-shadow;
+  width: 100%;
+  z-index: 2;
+  &:hover {
+    box-shadow: 0 0 12px #333;
+  }
 `
 
 export const BurgerBody = styled.div`
   background: ${({ theme }) => theme.colors.elements.bg};
-  border: 2px solid blue;
   display: flex;
   flex-flow: column wrap;
   font-size: 10px;
   padding: 0;
   position: relative;
-  @media ${above.tabletL} {
-    flex-flow: row wrap;
-  }
-
   p {
     font-size: 2em;
   }
-  small {
-    font-size: 1.8em;
-    opacity: 0.7;
+  @media ${above.tabletL} {
+    flex-flow: row wrap;
+    padding: 1em 3em;
   }
+
   .column-flex-column {
     flex: 1;
     flex-basis: 50%;
@@ -67,23 +67,51 @@ export const NamePrice = styled.div`
   background: ${({ theme }) => theme.colors.elements.bg};
   display: flex;
   justify-content: space-between;
+
+  small {
+    font-size: 1.8em;
+    opacity: 0.7;
+    @media ${above.tablet} {
+      position: absolute;
+      top: 3rem;
+      right: 2rem;
+    }
+  }
+  @media ${above.tablet} {
+    p {
+      font-size: 3em;
+      border-bottom: 2px solid
+        ${({ theme }) => theme.colors.illustrations.stroke};
+    }
+  }
 `
 
-export const AnimatedInfo = styled(motion.div)`
+interface AnimatedInfoProps {
+  vegetarian?: boolean
+}
+export const AnimatedInfo = styled(motion.div)<AnimatedInfoProps>`
   background: ${({ theme }) => theme.colors.elements.bg};
   display: flex;
   flex-flow: column wrap;
   font-size: 10px;
-  transition: ${({ theme: { transition } }) => transition.mainTransition};
   width: 100%;
   p {
     display: inline-block;
     padding: 0.125em;
+    width: 10em;
     &:nth-child(2) {
-      background: ${({ theme }) => theme.colors.illustrations.tertiary};
+      background: ${({ theme, vegetarian }) =>
+        vegetarian
+          ? theme.colors.illustrations.tertiary
+          : theme.colors.illustrations.secondary};
+
       box-shadow: ${({ theme }) => theme.shadow.elevations[2]};
       @media ${above.mobileL} {
         width: 12em;
+      }
+      @media ${below.mobileS} {
+        font-size: 1.5em;
+        margin-right: auto;
       }
     }
   }
@@ -98,9 +126,8 @@ export const AnimatedInfo = styled(motion.div)`
   }
 `
 
-export const Ingredients = styled.ul`
+export const Ingredients = styled(motion.ul)`
   align-items: center;
-
   display: flex;
   height: 100%;
   justify-content: space-evenly;
@@ -125,6 +152,11 @@ export const Ingredients = styled.ul`
       &:after {
         width: 100%;
       }
+    }
+  }
+  @media ${above.tabletL} {
+    li {
+      flex: 1 1 100%;
     }
   }
   @media ${below.mobileS} {

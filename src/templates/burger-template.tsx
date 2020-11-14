@@ -23,13 +23,22 @@ const BurgerTemplate: React.FC<PageProps<
   BurgerDataProps,
   PageContextProps
 >> = ({ data: { burger }, pageContext }) => {
-  const { state, toggle, setStateToFalse, setStateToTrue } = useToggle()
+  const { state, setStateToTrue } = useToggle()
+
+  const infoVariants = {
+    open: { opacity: 1, x: 0, height: "auto" },
+    closed: { opacity: 0, x: "-100%", height: 0 },
+  }
+  const ingredientsVariants = {
+    open: { opacity: 1, x: 0, height: "100%" },
+    closed: { opacity: 0, x: "100%", height: 0 },
+  }
   return (
     <>
       <Seo title="burger" />
       <Layout>
         <BurgerItem>
-          <ImageWrapper on={state}>
+          <ImageWrapper onMouseEnter={setStateToTrue}>
             <GatsbyImage
               fluid={burger.image?.fluid}
               alt={`burger-${burger.slug}`}
@@ -41,7 +50,13 @@ const BurgerTemplate: React.FC<PageProps<
                 <p> {burger.name} </p>
                 <small>{burger.price}$</small>
               </NamePrice>
-              <AnimatedInfo>
+              <AnimatedInfo
+                vegetarian={burger.vegetarian}
+                initial="closed"
+                animate={state ? "open" : "closed"}
+                variants={infoVariants}
+                transition={{ duration: 0.4, damping: 8 }}
+              >
                 <p> {burger.desc?.desc} </p>
                 <p>
                   {burger.vegetarian
@@ -51,7 +66,12 @@ const BurgerTemplate: React.FC<PageProps<
               </AnimatedInfo>
             </div>
             <div className="column-flex-row">
-              <Ingredients>
+              <Ingredients
+                initial="closed"
+                animate={state ? "open" : "closed"}
+                variants={ingredientsVariants}
+                transition={{ duration: 0.4, damping: 8 }}
+              >
                 {burger.ingredients?.ingredients.map(ingredient => (
                   <li key={ingredient}>{ingredient}</li>
                 ))}
