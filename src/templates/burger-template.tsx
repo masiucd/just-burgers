@@ -3,124 +3,21 @@ import { Seo } from "@components/Seo"
 import { graphql, PageProps } from "gatsby"
 import React from "react"
 import GatsbyImage from "gatsby-image"
-import styled, { css } from "styled-components"
-import { above } from "@styled/mediaQuery"
-import { motion } from "framer-motion"
 import { useToggle } from "@hooks/useToggle"
+import {
+  AnimatedInfo,
+  BurgerBody,
+  BurgerItem,
+  ImageWrapper,
+  Ingredients,
+  NamePrice,
+} from "./burger-styles"
 interface BurgerDataProps {
   burger: Burger
 }
 interface PageContextProps {
   slug: string
 }
-
-const BurgerItem = styled.section`
-  border: 2px solid red;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  height: 100%;
-  position: relative;
-  width: 100%;
-  @media ${above.tablet} {
-    min-width: 520px;
-  }
-  @media ${above.tabletL} {
-    min-width: 700px;
-  }
-  @media ${above.laptop} {
-    min-width: 900px;
-  }
-`
-
-interface ImageWrapperProps {
-  on: boolean
-}
-const ImageWrapper = styled.div<ImageWrapperProps>`
-  border: 1px solid ${({ on }) => on && "green"};
-  position: relative;
-`
-
-const BurgerBody = styled.div`
-  background: ${({ theme }) => theme.colors.elements.bg};
-  border: 2px solid blue;
-  display: flex;
-  font-size: 10px;
-  padding: 1em 3em;
-  position: relative;
-  p {
-    font-size: 2em;
-  }
-  small {
-    font-size: 1.8em;
-    opacity: 0.7;
-  }
-  .column-flex-column {
-    border: 2px solid red;
-    flex: 1;
-    flex-basis: 50%;
-  }
-  .column-flex-row {
-    border: 2px solid blue;
-    flex: 1;
-    flex-basis: 50%;
-  }
-`
-
-const NamePrice = styled.div`
-  align-items: center;
-  background: ${({ theme }) => theme.colors.elements.bg};
-  display: flex;
-  justify-content: space-between;
-`
-
-const AnimatedInfo = styled(motion.div)`
-  background: ${({ theme }) => theme.colors.elements.bg};
-  display: flex;
-  flex-flow: column wrap;
-  font-size: 10px;
-  transition: ${({ theme: { transition } }) => transition.mainTransition};
-  p {
-    display: inline-block;
-    padding: 0.125em;
-    &:nth-child(2) {
-      background: ${({ theme }) => theme.colors.illustrations.tertiary};
-      box-shadow: ${({ theme }) => theme.shadow.elevations[2]};
-      @media ${above.mobileL} {
-        width: 12em;
-      }
-    }
-  }
-`
-
-const Ingredients = styled.ul`
-  align-items: center;
-
-  display: flex;
-  height: 100%;
-  justify-content: space-evenly;
-  padding: 0;
-  li {
-    font-size: 1.8em;
-    margin: 0 0.3em;
-    position: relative;
-    transition: ${({ theme: { transition } }) => transition.mainTransition};
-    &:after {
-      background: ${({ theme: { colors } }) => colors.illustrations.highlight};
-      bottom: 0;
-      content: "";
-      height: 3px;
-      left: 0;
-      position: absolute;
-      transition: ${({ theme: { transition } }) => transition.mainTransition};
-      width: 0;
-    }
-    &:hover {
-      text-shadow: 1px 1px 1px #333;
-      &:after {
-        width: 100%;
-      }
-    }
-  }
-`
 
 const BurgerTemplate: React.FC<PageProps<
   BurgerDataProps,

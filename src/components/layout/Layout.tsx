@@ -10,18 +10,6 @@ interface LayoutProps {
   title?: string
 }
 
-interface PageProps {
-  bg: string
-}
-const Page = styled.div<PageProps>`
-  align-items: center;
-  background-image: ${props => `url(${props.bg})`};
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  min-height: 110vh;
-`
-
 interface MainProps {
   stripes: string
 }
@@ -32,7 +20,7 @@ const Main = styled.main<MainProps>`
   border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
   height: 100%;
-  margin: 0 auto;
+  margin: 5rem auto;
   max-width: ${props => props.theme.size.maxWidthPage};
   padding: 1em;
   position: relative;
@@ -56,9 +44,7 @@ const LAYOUT_QUERY = graphql`
         description
       }
     }
-    file(relativePath: { eq: "burger.svg" }) {
-      publicURL
-    }
+
     stripes: file(relativePath: { eq: "clouds.svg" }) {
       publicURL
     }
@@ -72,18 +58,17 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
     <ThemeProvider theme={mainTheme}>
       <GlobalStyles />
       <Typography />
-      <Page bg={data.file.publicURL}>
-        <Main stripes={data.stripes.publicURL}>
-          <App>
-            <Header className="main-header" />
-            {children}
-            <Footer
-              className="main-footer"
-              title={data.site.siteMetadata.title}
-            />
-          </App>
-        </Main>
-      </Page>
+
+      <Main stripes={data.stripes.publicURL}>
+        <App>
+          <Header className="main-header" />
+          {children}
+          <Footer
+            className="main-footer"
+            title={data.site.siteMetadata.title || ""}
+          />
+        </App>
+      </Main>
     </ThemeProvider>
   )
 }

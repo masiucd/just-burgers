@@ -17,9 +17,7 @@ interface BgQuery {
   site: {
     siteMetadata: SiteMetadata
   }
-  file: {
-    publicURL: string
-  }
+
   stripes: {
     publicURL: string
   }

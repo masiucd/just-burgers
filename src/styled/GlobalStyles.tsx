@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import burgers from "../images/burger.svg"
 
 export const GlobalStyles = createGlobalStyle`
   *,
@@ -7,13 +8,14 @@ export const GlobalStyles = createGlobalStyle`
       box-sizing: inherit;
     }
   html {
-    
+
     box-sizing: border-box;
     font-size: ${props => props.theme.appSize}; /**16px */
   }
-  
+
   body {
     background-color: ${props => props.theme.colors.elements.bg};
+    background-image: ${`url(${burgers})`};
     font-weight: 400;
     line-height: 1.65;
     padding: 0;
