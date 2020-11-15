@@ -19,8 +19,8 @@ const navigationLinks = [
     path: "favorites",
   },
   {
-    name: "burgers",
-    path: "burgers",
+    name: "menu",
+    path: "menu",
   },
   {
     name: "chefs",

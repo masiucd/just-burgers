@@ -2,11 +2,12 @@ import * as React from "react"
 import { Layout } from "@components/layout"
 import { Seo } from "@components/Seo"
 import { graphql, PageProps } from "gatsby"
-import { Burger } from "@components/food"
+import { Burger, Side } from "@components/food"
 import { AppTitle } from "@components/elements"
 import { Grid } from "@styled/Wrappers"
 import useTextKey from "@hooks/useTextKey"
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
+
 interface BurgersPageProps {
   burgers: {
     edges: NodeType<Burger>[]
@@ -20,9 +21,22 @@ const cx = css`
   p {
     font-size: 20px;
   }
+  h2,
+  .subtitle,
+  .descText {
+    text-align: center;
+  }
 `
 
-const BurgersPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
+const Heading = styled.h3`
+  border-bottom: 2px solid
+    ${({ theme }) => theme.colors.illustrations.highlight};
+  display: inline-block;
+  margin: 0.5rem 0;
+  padding: 0.125rem 0;
+`
+
+const MenuPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
   const { t } = useTextKey()
   return (
     <>
@@ -35,9 +49,16 @@ const BurgersPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
           desc={t("ourBurgersDesc")}
           style={cx}
         />
+        <Heading>{t("ourBurgerTitle")}</Heading>
         <Grid>
           {data.burgers.edges.map(burger => (
             <Burger key={burger.node.id} burger={burger.node} />
+          ))}
+        </Grid>
+        <Heading>{t("ourSidesTitle")}</Heading>
+        <Grid>
+          {data.sides.edges.map(side => (
+            <Side key={side.node.id} side={side.node} />
           ))}
         </Grid>
       </Layout>
@@ -83,4 +104,4 @@ export const BURGERS_QUERY = graphql`
   }
 `
 
-export default BurgersPage
+export default MenuPage

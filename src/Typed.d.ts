@@ -79,10 +79,13 @@ interface BurgersQuery {
 
 // type TextKeyType = "mastersCapture" | "burgersCapture"
 interface TextKeyMap {
-  mastersCapture: string
-  burgersCapture: string
-  ourBurgersDesc: string
+  // mastersCapture: string
+  // burgersCapture: string
+  // ourBurgersDesc: string
+  // ourBurgerTitle: string
+  [key: string]: string
 }
+
 type TextKey<T> = {
   readonly [key in keyof T]: T[key]
 }

@@ -3,11 +3,11 @@ import styled from "styled-components"
 import GatsbyImage from "gatsby-image"
 import { Link } from "gatsby"
 
-interface BurgerProps {
-  burger: Burger
+interface SideProps {
+  side: Side
 }
 
-const BurgerItem = styled.div`
+const StyledSideItem = styled.div`
   box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
   width: 100%;
 
@@ -43,11 +43,7 @@ const BurgerItem = styled.div`
   }
 `
 
-interface BurgerItemHeadProps {
-  isVeggie?: boolean
-}
-
-const BurgerItemHead = styled.div<BurgerItemHeadProps>`
+const SideItemHead = styled.div`
   border-bottom: 2px solid ${({ theme }) => theme.colors.illustrations.stroke};
   display: flex;
   flex-flow: row wrap;
@@ -60,39 +56,22 @@ const BurgerItemHead = styled.div<BurgerItemHeadProps>`
       box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
       padding: 0.1em;
     }
-    &:last-child {
-      background: ${({ theme, isVeggie }) =>
-        isVeggie
-          ? theme.colors.illustrations.highlight
-          : theme.colors.illustrations.secondary};
-      padding: 0.2em;
-    }
   }
 `
 
-const Burger: React.FC<BurgerProps> = ({ burger }) => {
+const Side: React.FC<SideProps> = ({ side }) => {
   return (
-    <BurgerItem>
+    <StyledSideItem>
       <div className="img-wrapper-burger">
-        <GatsbyImage fluid={burger.image.fluid} alt={`burger-${burger.slug}`} />
+        <GatsbyImage fluid={side.image.fluid} alt="side" />
       </div>
-      <Link to={`/burger/${burger.slug}`}>
-        <BurgerItemHead isVeggie={burger.vegetarian}>
-          <p>{burger.name}</p>
-          <p>{burger.price}$</p>
-          <p> {burger.vegetarian ? "🥗" : "🥩"}</p>
-        </BurgerItemHead>
+      <Link to={`/side/${side.title}`}>
+        <SideItemHead>
+          <p>{side.title}</p>
+          <p>{side.price}$</p>
+        </SideItemHead>
       </Link>
-
-      <div className="ingredients">
-        <p>Main ingredients</p>
-        <div className="ingredients-wrapper">
-          {burger.ingredients?.ingredients.map(ingredient => (
-            <span key={ingredient}>{ingredient}</span>
-          ))}
-        </div>
-      </div>
-    </BurgerItem>
+    </StyledSideItem>
   )
 }
-export default Burger
+export default Side

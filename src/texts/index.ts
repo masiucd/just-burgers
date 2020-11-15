@@ -8,6 +8,8 @@ const textKeys: TextKey<TextKeyMap> = {
   ourBurgersDesc: `<p className="ourBurgersDesc">We Put a lot of love into our burgers, pick your favorite burger without any hesitate.abs
    A nice side like, <span> sweet-potato </span> <span>fries</span> ore regular fries to it with a cold soda, nothing can't beat that.</p>
   `,
+  ourBurgerTitle: `burgers`,
+  ourSidesTitle: `sides`,
 }
 
 export default textKeys

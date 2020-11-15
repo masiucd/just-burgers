@@ -22,4 +22,5 @@ export const BurgersGrid = styled.section`
 export const Grid = styled(BurgersGrid)`
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 1.125rem 0;
 `

@@ -14,7 +14,7 @@ const AppTitle: React.FC<AppTitleProps> = ({
   subTitle,
   desc,
   className,
-  style,
+  style = null,
 }) => {
   return (
     <section className={className}>
