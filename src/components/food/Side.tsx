@@ -43,7 +43,10 @@ const StyledSideItem = styled.div`
   }
 `
 
-const SideItemHead = styled.div`
+interface BurgerItemHeadProps {
+  isVeggie?: boolean
+}
+const SideItemHead = styled.div<BurgerItemHeadProps>`
   border-bottom: 2px solid ${({ theme }) => theme.colors.illustrations.stroke};
   display: flex;
   flex-flow: row wrap;
@@ -56,6 +59,13 @@ const SideItemHead = styled.div`
       box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
       padding: 0.1em;
     }
+    &:last-child {
+      background: ${({ theme, isVeggie }) =>
+        isVeggie
+          ? theme.colors.illustrations.highlight
+          : theme.colors.illustrations.secondary};
+      padding: 0.2em;
+    }
   }
 `
 
@@ -63,12 +73,13 @@ const Side: React.FC<SideProps> = ({ side }) => {
   return (
     <StyledSideItem>
       <div className="img-wrapper-burger">
-        <GatsbyImage fluid={side.image.fluid} alt="side" />
+        <GatsbyImage fluid={side.image.fluid} alt={`side-${side.slug} `} />
       </div>
-      <Link to={`/side/${side.title}`}>
-        <SideItemHead>
+      <Link to={`/side/${side.slug}`}>
+        <SideItemHead isVeggie={side.vegetarian}>
           <p>{side.title}</p>
           <p>{side.price}$</p>
+          <p> {side.vegetarian ? "🥗" : "🥩"}</p>
         </SideItemHead>
       </Link>
     </StyledSideItem>

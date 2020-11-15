@@ -77,12 +77,7 @@ interface BurgersQuery {
   }
 }
 
-// type TextKeyType = "mastersCapture" | "burgersCapture"
 interface TextKeyMap {
-  // mastersCapture: string
-  // burgersCapture: string
-  // ourBurgersDesc: string
-  // ourBurgerTitle: string
   [key: string]: string
 }
 
@@ -93,7 +88,9 @@ type TextKey<T> = {
 interface Side {
   id: string
   title: string
+  slug: string
   price: number
+  vegetarian: boolean
   image: {
     fluid: MapObject<any>
   }
