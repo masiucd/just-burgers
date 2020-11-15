@@ -82,6 +82,15 @@ const Side: React.FC<SideProps> = ({ side }) => {
           <p> {side.vegetarian ? "🥗" : "🥩"}</p>
         </SideItemHead>
       </Link>
+
+      <div className="ingredients">
+        <p>Main ingredients</p>
+        <div className="ingredients-wrapper">
+          {side.ingredients?.ingredients.map(ingredient => (
+            <span key={ingredient}>{ingredient}</span>
+          ))}
+        </div>
+      </div>
     </StyledSideItem>
   )
 }

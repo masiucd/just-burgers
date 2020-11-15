@@ -100,6 +100,9 @@ export const BURGERS_QUERY = graphql`
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
+          ingredients {
+            ingredients
+          }
         }
       }
     }

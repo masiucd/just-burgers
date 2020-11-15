@@ -91,6 +91,9 @@ interface Side {
   slug: string
   price: number
   vegetarian: boolean
+  ingredients?: {
+    ingredients: string[]
+  }
   image: {
     fluid: MapObject<any>
   }
