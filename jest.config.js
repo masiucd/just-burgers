@@ -19,6 +19,8 @@ const config = {
     "\\.svg": "<rootDir>/__mocks__/svgr-mock.js",
     "^~/(.*)$": "<rootDir>/src/$1",
     "@theme/styled": "<rootDir>/src/styled",
+    "tests/(.*)": "<rootDir>/__tests__/$1",
+    "@components/(.*)": "<rootDir>/src/components/**",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   testPathIgnorePatterns: ["node_modules", ".cache", "public"],
@@ -32,12 +34,12 @@ const config = {
     "!<rootDir>/src/**/*.stories.{ts,tsx}",
     "!<rootDir>/src/**/__tests__/**/*",
     "!<rootDir>/src/components/**/index.ts",
+    "!<rootDir>/src/components/**",
+    "!<rootDir>/src/**",
     "!<rootDir>/node_modules/",
     "!<rootDir>/test-utils/",
   ],
   testURL: "http://localhost",
-  setupFiles: ["<rootDir>/test-utils/loadershim.js", "jest-localstorage-mock"],
-  setupFilesAfterEnv: ["<rootDir>/test-utils/setup-test-env.ts"],
 }
 
 module.exports = config

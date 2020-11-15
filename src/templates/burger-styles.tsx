@@ -183,14 +183,14 @@ export const BurgerTitle = styled(motion.div)`
   left: 50%;
   padding: 5em 2em;
   position: absolute;
-  top: 20%;
+  top: 0;
   transform: translate(-50%, -50%);
   transition: ${({ theme: { transition } }) => transition.quickTransition};
   z-index: 3;
   h4 {
     box-shadow: 2px 2px 0 0 ${({ theme }) => theme.colors.illustrations.main};
     color: ${({ theme }) => theme.colors.illustrations.main};
-    font-size: 3em;
+    font-size: 2.2em;
     transition: ${({ theme: { transition } }) => transition.quickTransition};
     @media ${above.tablet} {
       font-size: 6em;
@@ -203,6 +203,16 @@ export const BurgerTitle = styled(motion.div)`
   }
   &:hover {
     font-size: 10.2px;
-    top: 21.5%;
+    top: 1.5%;
+  }
+
+  @media ${above.mobileL} {
+    top: 20%;
+    h4 {
+      font-size: 4em;
+    }
+    &:hover {
+      top: 21.5%;
+    }
   }
 `
