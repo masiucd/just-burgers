@@ -18,9 +18,6 @@ interface ItemProps {
   item: SideBurgerOreDrink
 }
 
-// TODO: This will be used for later use
-// TODO Refactor the template with this component
-
 const Item: React.FC<ItemProps> = ({ item }) => {
   const { state: on, toggle } = useToggle()
 

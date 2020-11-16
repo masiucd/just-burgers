@@ -2,7 +2,6 @@ import { Layout } from "@components/layout"
 import { Seo } from "@components/Seo"
 import { graphql, PageProps } from "gatsby"
 import React from "react"
-
 import Item from "@components/item-template/Item"
 interface BurgerDataProps {
   burger: Burger
