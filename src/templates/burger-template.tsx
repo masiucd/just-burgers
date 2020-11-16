@@ -6,14 +6,15 @@ import GatsbyImage from "gatsby-image"
 import { useToggle } from "@hooks/useToggle"
 import {
   AnimatedInfo,
-  BurgerBody,
-  BurgerItem,
-  BurgerTitle,
+  ItemBody,
+  ItemWrapper,
+  ItemTitle,
   ImageWrapper,
   Ingredients,
   NamePrice,
-} from "@styled/burger-styles"
+} from "@styled/item-styles"
 import { AnimatePresence } from "framer-motion"
+import { infoVariants, ingredientsVariants } from "@styled/variants"
 interface BurgerDataProps {
   burger: Burger
 }
@@ -27,19 +28,11 @@ const BurgerTemplate: React.FC<PageProps<
 >> = ({ data: { burger }, pageContext }) => {
   const { state: on, toggle } = useToggle()
 
-  const infoVariants = {
-    open: { opacity: 1, x: 0, height: "auto" },
-    closed: { opacity: 0, x: "-100%", height: 0 },
-  }
-  const ingredientsVariants = {
-    open: { opacity: 1, x: 0, height: "100%" },
-    closed: { opacity: 0, x: "100%", height: 0 },
-  }
   return (
     <>
       <Seo title="burger" />
       <Layout>
-        <BurgerItem>
+        <ItemWrapper>
           <ImageWrapper>
             <GatsbyImage
               fluid={burger.image?.fluid}
@@ -47,7 +40,7 @@ const BurgerTemplate: React.FC<PageProps<
             />
           </ImageWrapper>
           <AnimatePresence>
-            <BurgerBody
+            <ItemBody
               key="burger-body"
               initial={{ opacity: 0 }}
               animate={
@@ -89,17 +82,17 @@ const BurgerTemplate: React.FC<PageProps<
                   ))}
                 </Ingredients>
               </div>
-            </BurgerBody>
+            </ItemBody>
           </AnimatePresence>
-          <BurgerTitle
+          <ItemTitle
             initial={{ opacity: 0, x: "1000%" }}
             animate={{ opacity: 1, x: "-50%" }}
             transition={{ damping: 6, duration: 0.25 }}
             onClick={toggle}
           >
             <h4>{burger.name} ⬇ </h4>
-          </BurgerTitle>
-        </BurgerItem>
+          </ItemTitle>
+        </ItemWrapper>
       </Layout>
     </>
   )

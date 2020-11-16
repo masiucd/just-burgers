@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { RenderHtml } from "@components/componentUtils"
+import { RenderHtml } from "@components/component-utils"
 
 interface FooterProps {
   className: string

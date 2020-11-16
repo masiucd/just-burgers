@@ -1,4 +1,4 @@
-import { RenderHtml } from "@components/componentUtils"
+import { RenderHtml } from "@components/component-utils"
 import React from "react"
 import styled, { FlattenSimpleInterpolation } from "styled-components"
 interface AppTitleProps {

@@ -1,12 +1,12 @@
 import {
-  BurgerBody,
-  BurgerItem,
-  BurgerTitle,
+  ItemBody,
+  ItemWrapper,
+  ItemTitle,
   NamePrice,
   AnimatedInfo,
   ImageWrapper,
   Ingredients,
-} from "./burger-styles"
+} from "./item-styles"
 import { Strong } from "./HtmlElements"
 import { below, above } from "./media-query"
 import { TwoColumnGrid, Column } from "./Wrappers"
@@ -17,9 +17,9 @@ export {
   TwoColumnGrid,
   Column,
   Strong,
-  BurgerBody,
-  BurgerItem,
-  BurgerTitle,
+  ItemBody,
+  ItemWrapper,
+  ItemTitle,
   NamePrice,
   AnimatedInfo,
   ImageWrapper,

@@ -85,12 +85,19 @@ type TextKey<T> = {
   readonly [key in keyof T]: T[key]
 }
 
+interface Content {
+  content: { value: string }[]
+}
+
 interface Side {
   id: string
   title: string
   slug: string
   price: number
   vegetarian: boolean
+  desc_: {
+    content: Content[]
+  }
   ingredients?: {
     ingredients: string[]
   }

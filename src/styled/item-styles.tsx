@@ -2,7 +2,7 @@ import { above, below } from "@styled/media-query"
 import { motion } from "framer-motion"
 import styled from "styled-components"
 
-export const BurgerItem = styled.section`
+export const ItemWrapper = styled.section`
   border-radius: ${({ theme }) => theme.borderRadius};
   height: 100%;
   position: relative;
@@ -39,7 +39,7 @@ export const ImageWrapper = styled.div`
   }
 `
 
-export const BurgerBody = styled(motion.div)`
+export const ItemBody = styled(motion.div)`
   background: ${({ theme }) => theme.colors.elements.bg};
   display: flex;
   flex-flow: column wrap;
@@ -160,12 +160,16 @@ export const Ingredients = styled(motion.ul)`
       text-shadow: 1px 1px 1px #333;
       &:after {
         width: 100%;
+        @media ${above.tabletL} {
+          width: 40%;
+        }
       }
     }
   }
   @media ${above.tabletL} {
     li {
       flex: 1 1 100%;
+      width: 5em;
     }
   }
   @media ${below.mobileS} {
@@ -177,7 +181,7 @@ export const Ingredients = styled(motion.ul)`
   }
 `
 
-export const BurgerTitle = styled(motion.div)`
+export const ItemTitle = styled(motion.div)`
   cursor: pointer;
   font-size: 10px;
   left: 50%;
