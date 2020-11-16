@@ -1,4 +1,4 @@
-import { above, below } from "@styled/mediaQuery"
+import { above, below } from "@styled/media-query"
 import { motion } from "framer-motion"
 import styled from "styled-components"
 

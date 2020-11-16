@@ -12,7 +12,7 @@ import {
   ImageWrapper,
   Ingredients,
   NamePrice,
-} from "./burger-styles"
+} from "@styled/burger-styles"
 import { AnimatePresence } from "framer-motion"
 interface BurgerDataProps {
   burger: Burger

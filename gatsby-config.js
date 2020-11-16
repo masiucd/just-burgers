@@ -58,9 +58,10 @@ module.exports = {
       options: {
         alias: {
           // "@components": path.resolve(__dirname, "src/components"),
-          "@components": "src/components",
-          "@hooks": "src/hooks",
-          "@styled": "src/styled",
+          "@src": "src",
+          "@components": path.resolve(__dirname, "src/components"),
+          "@hooks": path.resolve(__dirname, "src/hooks"),
+          "@styled": path.resolve(__dirname, "src/styled"),
         },
         extensions: ["ts", "tsx", "js"],
       },

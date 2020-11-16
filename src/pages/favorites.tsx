@@ -10,7 +10,8 @@ const FavoritePage = () => {
         description="what is your favorite burger? Pick and choose"
       />
       <Layout>
-        <h1>FavoritePage</h1>
+        <h3>FavoritePage</h3>
+        <h4>Out blog page</h4>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, quas
           consequuntur? Aliquam libero eaque magnam. Earum aliquam ex dicta,
