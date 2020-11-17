@@ -79,7 +79,10 @@ const Burger: React.FC<BurgerProps> = ({ burger }) => {
   return (
     <BurgerItem>
       <div className="img-wrapper-burger">
-        <GatsbyImage fluid={burger.image.fluid} alt={`burger-${burger.slug}`} />
+        <GatsbyImage
+          fluid={burger.image ? burger.image.fluid : ""}
+          alt={`burger-${burger.slug}`}
+        />
       </div>
       <Link to={`/burger/${burger.slug}`}>
         <BurgerItemHead isVeggie={burger.vegetarian}>

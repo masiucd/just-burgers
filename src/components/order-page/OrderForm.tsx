@@ -2,10 +2,12 @@ import React from "react"
 import styled from "styled-components"
 import { FormSubmit } from "@styled/form-elements"
 import OrderFormElements from "./OrderFormElements"
-import { above, below } from "@styled/media-query"
+import { above } from "@styled/media-query"
 
 interface OrderFormProps {
   className: string
+  burgers: NodeType<Burger>[]
+  sides: NodeType<Side>[]
 }
 
 const FieldSet = styled.fieldset``
@@ -27,7 +29,7 @@ const MenuOrderWrapper = styled.div`
   }
 `
 
-const OrderForm: React.FC<OrderFormProps> = ({ className }) => {
+const OrderForm: React.FC<OrderFormProps> = ({ className, burgers, sides }) => {
   return (
     <form className={className}>
       <FieldSet>

@@ -4,8 +4,18 @@ import { Layout } from "@components/layout"
 import { Seo } from "@components/Seo"
 import { AppTitle } from "@components/elements"
 import { OrderForm } from "@components/order-page"
+import { graphql, PageProps } from "gatsby"
 
-const OrdersPage = () => {
+interface OrdersPageData {
+  burgers: {
+    edges: NodeType<Burger>[]
+  }
+  sides: {
+    edges: NodeType<Side>[]
+  }
+}
+
+const OrdersPage: React.FC<PageProps<OrdersPageData>> = ({ data }) => {
   const { t } = useTextKey()
   return (
     <>
@@ -15,17 +25,49 @@ const OrdersPage = () => {
           className="order-page-app-title"
           title={t("orderPageTitle")}
         />
-        <OrderForm className="order-form" />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dolorem
-          consequatur nostrum accusamus temporibus voluptate sapiente,
-          exercitationem, itaque, quibusdam blanditiis veritatis quidem
-          reprehenderit atque necessitatibus autem quae possimus earum neque?
-          lorem500
-        </p>
+        <OrderForm
+          className="order-form"
+          burgers={data.burgers.edges}
+          sides={data.sides.edges}
+        />
       </Layout>
     </>
   )
 }
+
+export const ORDER_PAGE_QUERY = graphql`
+  {
+    burgers: allContentfulBurgers {
+      edges {
+        node {
+          id
+          name
+          price
+          vegetarian
+          image {
+            fluid(maxHeight: 500, maxWidth: 500, quality: 90) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+    sides: allContentfulSides {
+      edges {
+        node {
+          id
+          title
+          price
+          vegetarian
+          image {
+            fluid(maxHeight: 500, maxWidth: 500, quality: 90) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default OrdersPage
