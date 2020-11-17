@@ -41,6 +41,10 @@ const StyledSideItem = styled.div`
       width: 100%;
     }
   }
+  &:hover {
+    box-shadow: ${props => props.theme.shadow.elevations[4]};
+    transform: rotate(1deg);
+  }
 `
 
 interface BurgerItemHeadProps {

@@ -9,7 +9,7 @@ interface BurgerProps {
 
 const BurgerItem = styled.div`
   box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
-  width: 100%;
+  transition: ${({ theme }) => theme.transition.quickTransition};
 
   .ingredients {
     display: flex;
@@ -40,6 +40,11 @@ const BurgerItem = styled.div`
       top: 0;
       width: 100%;
     }
+  }
+  width: 100%;
+  &:hover {
+    box-shadow: ${props => props.theme.shadow.elevations[4]};
+    transform: rotate(1deg);
   }
 `
 

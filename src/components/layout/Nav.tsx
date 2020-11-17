@@ -33,6 +33,7 @@ const NavList = styled.ul`
     }
     &:hover {
       color: ${({ theme }) => theme.colors.elements.button};
+      text-shadow: 1px 1px 1px #333;
       &::after {
         width: 100%;
       }
@@ -47,7 +48,10 @@ const Nav: React.FC<NavProps> = ({ className, navLinks }) => {
         {navLinks &&
           navLinks.map(({ name, path }) => (
             <li key={name}>
-              <Link activeStyle={{ color: "#e45858" }} to={`/${path}`}>
+              <Link
+                activeStyle={{ color: "#e45858", textShadow: "2px 2px #333" }}
+                to={`/${path}`}
+              >
                 {name}{" "}
               </Link>
             </li>
