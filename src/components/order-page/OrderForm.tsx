@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { FormSubmit } from "@styled/form-elements"
 import OrderFormElements from "./OrderFormElements"
 import { above } from "@styled/media-query"
+import Dishes from "./Dishes"
 
 interface OrderFormProps {
   className: string
@@ -22,6 +23,8 @@ const MenuOrderWrapper = styled.div`
 
   fieldset {
     flex: 1 1 100%;
+    max-height: 40rem;
+    overflow-y: scroll;
   }
 
   @media ${above.tablet} {
@@ -38,11 +41,12 @@ const OrderForm: React.FC<OrderFormProps> = ({ className, burgers, sides }) => {
       </FieldSet>
 
       <MenuOrderWrapper>
-        <FieldSet>
+        <FieldSet className="menu">
           <Legend>Menu</Legend>
+          <Dishes burgers={burgers} sides={sides} />
         </FieldSet>
 
-        <FieldSet>
+        <FieldSet className="order">
           <Legend>Order</Legend>
         </FieldSet>
       </MenuOrderWrapper>

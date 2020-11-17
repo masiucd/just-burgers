@@ -61,7 +61,7 @@ export const FormSubmit = styled.button`
   outline: none;
   padding: 0.2em 0.5em;
   transition: ${({ theme }) => theme.transition.mainTransition};
-  width: 14em;
+  width: 100%;
   &:hover {
     background-position: -100%;
     box-shadow: ${({ theme }) => theme.shadow.elevations[4]};
