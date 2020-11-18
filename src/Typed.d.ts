@@ -13,12 +13,15 @@ interface SiteMetadata {
   openHours: string
 }
 
-interface BgQuery {
+interface LayoutQuery {
   site: {
     siteMetadata: SiteMetadata
   }
 
   stripes: {
+    publicURL: string
+  }
+  burgerBg: {
     publicURL: string
   }
 }

@@ -2,8 +2,8 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import { above, below } from "../../styled"
-import Logo from "./Logo"
-import Nav from "./Nav"
+import Logo from "./logo"
+import Nav from "./nav"
 
 interface HeaderProps {
   className: string

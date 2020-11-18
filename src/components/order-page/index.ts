@@ -1,3 +1,3 @@
-import OrderForm from "./OrderForm"
+import OrderForm from "./order-form"
 
 export { OrderForm }

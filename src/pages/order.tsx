@@ -1,7 +1,7 @@
 import * as React from "react"
 import useTextKey from "@hooks/useTextKey"
 import { Layout } from "@components/layout"
-import { Seo } from "@components/Seo"
+import { Seo } from "@components/seo"
 import { AppTitle } from "@components/elements"
 import { OrderForm } from "@components/order-page"
 import { graphql, PageProps } from "gatsby"

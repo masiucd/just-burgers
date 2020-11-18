@@ -1,10 +1,10 @@
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
-import { mainTheme, GlobalStyles, Typography } from "@styled/theme"
+import { mainTheme, GlobalStyles, Typography } from "@styled/index"
 import { graphql, useStaticQuery } from "gatsby"
-import Header from "./Header"
+import Header from "./header"
 import { below } from "@styled/media-query"
-import Footer from "./Footer"
+import Footer from "./footer"
 
 interface LayoutProps {
   title?: string
@@ -48,15 +48,19 @@ const LAYOUT_QUERY = graphql`
     stripes: file(relativePath: { eq: "clouds.svg" }) {
       publicURL
     }
+    burgerBg: file(relativePath: { eq: "burger.svg" }) {
+      publicURL
+    }
   }
 `
 
 const Layout: React.FC<LayoutProps> = ({ title, children }) => {
-  const data = useStaticQuery<BgQuery>(LAYOUT_QUERY)
+  const data = useStaticQuery<LayoutQuery>(LAYOUT_QUERY)
 
   return (
     <ThemeProvider theme={mainTheme}>
-      <GlobalStyles />
+      <GlobalStyles bgImage={data.burgerBg.publicURL} />
+
       <Typography />
 
       <Main stripes={data.stripes.publicURL}>

@@ -1,10 +1,10 @@
 import * as React from "react"
 import { Layout } from "@components/layout"
-import { Seo } from "@components/Seo"
+import { Seo } from "@components/seo"
 import { graphql, PageProps } from "gatsby"
 import { Burger, Side } from "@components/food"
 import { AppTitle } from "@components/elements"
-import { Grid } from "@styled/Wrappers"
+import { Grid } from "@styled/wrappers"
 import useTextKey from "@hooks/useTextKey"
 import styled, { css } from "styled-components"
 

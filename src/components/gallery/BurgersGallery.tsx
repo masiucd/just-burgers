@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import ImageItem from "./ImageItem"
-import { BurgersGrid } from "@styled/Wrappers"
+import { BurgersGrid } from "@styled/wrappers"
 
 export const BURGERS_GALLERY_QUERY = graphql`
   {

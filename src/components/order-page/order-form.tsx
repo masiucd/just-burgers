@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { FormSubmit } from "@styled/form-elements"
-import OrderFormElements from "./OrderFormElements"
+import OrderFormElements from "./order-form-elements"
 import { above } from "@styled/media-query"
 import Dishes from "./Dishes"
 
