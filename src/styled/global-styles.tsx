@@ -1,7 +1,4 @@
-import React from "react"
 import { createGlobalStyle } from "styled-components"
-// import burgers from "@images/burger.svg"
-import burgers from "@images/burger.svg"
 
 interface GlobalStylesFnProps {
   bgImage: string
@@ -25,7 +22,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
 
   body {
     background-color: ${props => props.theme.colors.elements.bg};
-    /* background-image: ${`url(${burgers})`}; */
+
     background-image: ${({ bgImage }) => (bgImage ? `url(${bgImage})` : "")};
     font-weight: 400;
     line-height: 1.65;

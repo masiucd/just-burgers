@@ -29,6 +29,9 @@ interface LayoutQuery {
 interface SeoQuery {
   SEO: { siteMetadata: SiteMetadata }
 }
+interface LogoQuery {
+  logoImage: { publicURL: string }
+}
 
 interface NavQuery {
   navData: { siteMetadata: SiteMetadata }

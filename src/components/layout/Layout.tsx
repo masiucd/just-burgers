@@ -54,9 +54,8 @@ const LAYOUT_QUERY = graphql`
   }
 `
 
-const Layout: React.FC<LayoutProps> = ({ title, children }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const data = useStaticQuery<LayoutQuery>(LAYOUT_QUERY)
-
   return (
     <ThemeProvider theme={mainTheme}>
       <GlobalStyles bgImage={data.burgerBg.publicURL} />

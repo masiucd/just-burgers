@@ -1,9 +1,14 @@
 import React from "react"
 import styled from "styled-components"
-import clouds from "../../images/clouds.svg"
+import { graphql, useStaticQuery } from "gatsby"
 
-const LogoStyles = styled.div`
-  background: white url(${clouds});
+interface LogoStylesProps {
+  logoImage: string
+}
+
+const LogoStyles = styled.div<LogoStylesProps>`
+  background: white
+    ${props => (props.logoImage ? `url(${props.logoImage})` : "")};
   background-size: 2em;
   border: 2px solid ${props => props.theme.colors.illustrations.main};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
@@ -78,9 +83,19 @@ const LogoStyles = styled.div`
   }
 `
 
+const LOGO_QUERY = graphql`
+  {
+    logoImage: file(relativePath: { eq: "clouds.svg" }) {
+      publicURL
+    }
+  }
+`
+
 const Logo = () => {
+  const data = useStaticQuery<LogoQuery>(LOGO_QUERY)
+
   return (
-    <LogoStyles className="main-logo">
+    <LogoStyles className="main-logo" logoImage={data.logoImage.publicURL}>
       <div className="inner">
         <span className="est">EST 1999</span>
         <h1>

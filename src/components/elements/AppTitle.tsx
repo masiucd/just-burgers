@@ -17,11 +17,23 @@ const AppTitle: React.FC<AppTitleProps> = ({
   style = null,
 }) => {
   return (
-    <section className={className}>
+    <section className={className} data-testid="main-app-title">
       <h2>{title}</h2>
 
-      {subTitle && <RenderHtml className="subtitle" text={subTitle} />}
-      {desc && <RenderHtml className="descText" text={desc} />}
+      {subTitle && (
+        <RenderHtml
+          dataTestId="subtitle-renderHtml"
+          className="subtitle"
+          text={subTitle}
+        />
+      )}
+      {desc && (
+        <RenderHtml
+          dataTestId="desc-renderHtml"
+          className="descText"
+          text={desc}
+        />
+      )}
     </section>
   )
 }
