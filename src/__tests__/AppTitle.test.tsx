@@ -2,7 +2,6 @@ import React from "react"
 import { screen } from "@testing-library/react"
 import { css } from "styled-components"
 import { AppTitle } from "@components/elements"
-
 import { render } from "../../test-utils/render"
 
 describe("<AppTitle/>", () => {
@@ -37,6 +36,5 @@ describe("<AppTitle/>", () => {
     expect(titleElementWrapper).toBeInTheDocument()
     expect(titleElementWrapper).toHaveClass(props.className)
     expect(titleElementWrapper).toHaveStyle({ background: "red;" })
-    screen.debug()
   })
 })

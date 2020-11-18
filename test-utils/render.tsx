@@ -7,11 +7,11 @@ import "@testing-library/jest-dom"
 // import { TranslationProvider } from "my-i18n-lib"
 // import defaultStrings from "i18n/en-x-default"
 
-const AllTheProviders = ({ children }) => {
+const AllTheProviders: React.FC = ({ children }) => {
   return <ThemeProvider theme={mainTheme}>{children}</ThemeProvider>
 }
 
-const customRender = (ui: any, options: any = {}) =>
+const customRender = (ui: React.ReactElement, options: any = {}) =>
   render(ui, { wrapper: AllTheProviders, ...options })
 
 // re-export everything

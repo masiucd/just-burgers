@@ -33,6 +33,11 @@ export const FormLabel = styled.label`
 
 export const FormSubmit = styled.button`
   background: ${({ theme: { colors } }) => colors.illustrations.main};
+  background-image: linear-gradient(
+    to right,
+    ${({ theme: { colors } }) => colors.illustrations.highlight} 50%,
+    ${({ theme: { colors } }) => colors.illustrations.tertiary} 50%
+  );
   background-image: -webkit-gradient(
     linear,
     left top,
@@ -43,11 +48,6 @@ export const FormSubmit = styled.button`
     ),
     color-stop(50%, ${({ theme: { colors } }) => colors.illustrations.tertiary})
   );
-  background-image: linear-gradient(
-    to right,
-    ${({ theme: { colors } }) => colors.illustrations.highlight} 50%,
-    ${({ theme: { colors } }) => colors.illustrations.tertiary} 50%
-  );
   background-position: 0;
   background-size: 200%;
   border: 2px solid ${({ theme }) => theme.colors.illustrations.stroke};
@@ -56,12 +56,13 @@ export const FormSubmit = styled.button`
   color: ${({ theme: { colors } }) => colors.illustrations.stroke};
   cursor: pointer;
   display: block;
-  font-size: 1.8em;
+  font-size: 2em;
+  font-weight: 800;
   margin: 1.3em auto;
   outline: none;
-  padding: 0.2em 0.5em;
+  padding: 0.5em 0.8em;
   transition: ${({ theme }) => theme.transition.mainTransition};
-  width: 100%;
+  width: 80%;
   &:hover {
     background-position: -100%;
     box-shadow: ${({ theme }) => theme.shadow.elevations[4]};
