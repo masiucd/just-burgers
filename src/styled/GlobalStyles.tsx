@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components"
-import burgers from "../images/burger.svg"
+// import burgers from "@images/burger.svg"
+import burgers from "@images/burger.svg"
 
 export const GlobalStyles = createGlobalStyle`
   *,

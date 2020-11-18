@@ -62,6 +62,7 @@ module.exports = {
           "@components": path.resolve(__dirname, "src/components"),
           "@hooks": path.resolve(__dirname, "src/hooks"),
           "@styled": path.resolve(__dirname, "src/styled"),
+          "@images": path.resolve(__dirname, "src/images"),
         },
         extensions: ["ts", "tsx", "js"],
       },

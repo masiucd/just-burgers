@@ -18,6 +18,7 @@
       "@components/*": ["components/*"],
       "@styled/*": ["styled/*"],
       "@hooks/*": ["hooks/*"],
+      "@images/*": ["images/*"]
     }
   },
   "exclude": ["node_modules", "public", ".cache"]

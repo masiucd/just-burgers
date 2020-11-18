@@ -78,7 +78,6 @@
     "serve": "gatsby serve",
     "test": "jest --watch",
     "test2": "./node_modules/jest/bin/jest.js --colors --coverage test",
-
     "type-check": "tsc --noEmit",
     "lint": "eslint **/*.tsx"
   },
