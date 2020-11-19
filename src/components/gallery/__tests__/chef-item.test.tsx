@@ -37,7 +37,5 @@ describe("<ChefItem/>", () => {
     })
 
     // TODO: TEST when image will have another style
-
-    screen.debug()
   })
 })
