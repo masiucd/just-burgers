@@ -32,6 +32,7 @@ const Main = styled.main<MainProps>`
 const App = styled.div`
   background: ${({ theme }) => theme.colors.elements.bg};
   height: 100%;
+  margin: 0 auto;
   padding: 1em;
   width: 100%;
 `

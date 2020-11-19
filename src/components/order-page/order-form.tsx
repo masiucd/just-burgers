@@ -12,8 +12,19 @@ interface OrderFormProps {
 }
 
 const FieldSet = styled.fieldset`
+  background: red;
   border: 2px solid ${({ theme }) => theme.colors.illustrations.stroke};
   border-radius: ${({ theme }) => theme.borderRadius};
+
+  /* @media ${above.mobileS} {
+    &.name-email,
+    &.menu,
+    &.order {
+      background-color: blue;
+    } */
+    /* width: 13rem; */
+    /* width: 100%; */
+  /* } */
 `
 
 const Legend = styled.legend`
@@ -27,10 +38,11 @@ const MenuOrderWrapper = styled.div`
   fieldset {
     flex: 1 1 100%;
     max-height: 40rem;
+    overflow-x: hidden;
     overflow-y: scroll;
   }
 
-  @media ${above.tablet} {
+  @media ${above.tabletL} {
     flex-direction: row;
   }
 `
@@ -38,7 +50,7 @@ const MenuOrderWrapper = styled.div`
 const OrderForm: React.FC<OrderFormProps> = ({ className, burgers, sides }) => {
   return (
     <form className={className}>
-      <FieldSet>
+      <FieldSet className="name-email">
         <Legend>Name and email</Legend>
         <OrderFormElements />
       </FieldSet>
@@ -63,5 +75,4 @@ export default styled(OrderForm)`
   display: flex;
   flex-flow: column wrap;
   font-size: 10px;
-  padding: 1em 2em;
 `

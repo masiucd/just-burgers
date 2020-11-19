@@ -8,7 +8,8 @@ interface DishesProps {
 }
 
 const StyledDishes = styled.ul`
-  /*  */
+  margin: 0;
+  padding: 0;
 `
 
 const renderBurgers = (burgers: NodeType<Burger>[]) =>
