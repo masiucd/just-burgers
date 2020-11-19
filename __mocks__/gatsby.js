@@ -1,9 +1,9 @@
 import React from "react"
-
 const gatsbyPluginIntl = jest.requireActual("gatsby-plugin-intl")
 
 module.exports = {
   ...gatsbyPluginIntl,
+  graphql: jest.fn(),
   Link: jest
     .fn()
     .mockImplementation(
@@ -24,4 +24,6 @@ module.exports = {
           href: to,
         })
     ),
+  StaticQuery: jest.fn(),
+  useStaticQuery: jest.fn(),
 }
