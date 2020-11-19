@@ -1,7 +1,7 @@
 import React from "react"
 import { Column, Strong, TwoColumnGrid } from "../../styled"
 import BurgersGallery from "./burger-gallery"
-import ChefsGallery from "./ChefsGallery"
+import ChefsGallery from "./chefs-gallery"
 import styled from "styled-components"
 import useTextKey from "../../hooks/useTextKey"
 import { RenderHtml } from "../component-utils"

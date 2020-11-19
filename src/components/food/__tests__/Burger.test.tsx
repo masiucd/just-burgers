@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen } from "../../../../test-utils/render"
-import Burger from "../Burger"
+import Burger from "../burger"
 
 describe("<Burger/>", () => {
   test("should renders correctly and dish is for vegetarians", () => {

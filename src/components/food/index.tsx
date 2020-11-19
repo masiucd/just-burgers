@@ -1,4 +1,4 @@
 import Burger from "./burger"
-import Side from "./Side"
+import Side from "./side"
 
 export { Burger, Side }
