@@ -47,7 +47,7 @@ const StyledChefItem = styled.div`
 const ChefItem: React.FC<ChefItemProps> = ({ chef }) => {
   return (
     <StyledChefItem>
-      <div className="chef-img">
+      <div className="chef-img" data-testid="gallery-chef-img-wrapper">
         <GatsbyImage fluid={chef.image.fluid} alt={`person-${chef.name}`} />
         <strong>{chef.name}</strong>
       </div>

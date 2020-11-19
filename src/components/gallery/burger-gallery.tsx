@@ -30,7 +30,7 @@ const BurgersGallery = () => {
   } = useStaticQuery<BurgersQuery>(BURGERS_GALLERY_QUERY)
 
   return (
-    <BurgersGrid>
+    <BurgersGrid data-testid="gallery-burgers-grid">
       {edges.map(({ node }) => (
         <ImageItem key={node.id} item={node} />
       ))}

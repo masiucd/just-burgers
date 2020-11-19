@@ -46,9 +46,12 @@ const StyledImageItem = styled.div`
 
 const ImageItem: React.FC<ImageItemProps> = ({ item }) => {
   return (
-    <StyledImageItem>
-      <div className="chef-img">
-        <GatsbyImage fluid={item.image.fluid} alt={`imageitem-${item.name}`} />
+    <StyledImageItem data-testid="gallery-image-item">
+      <div className="chef-img" data-testid="gallery-image-item-gatsby-image">
+        <GatsbyImage
+          fluid={item.image ? item.image.fluid : ""}
+          alt={`image-item-${item.name}`}
+        />
         <strong>{item.name}</strong>
       </div>
     </StyledImageItem>
