@@ -78,17 +78,23 @@ const BurgerItemHead = styled.div<BurgerItemHeadProps>`
 const Burger: React.FC<BurgerProps> = ({ burger }) => {
   return (
     <BurgerItem>
-      <div className="img-wrapper-burger">
+      <div className="img-wrapper-burger" data-testid="food-img-wrapper-burger">
         <GatsbyImage
           fluid={burger.image ? burger.image.fluid : ""}
           alt={`burger-${burger.slug}`}
         />
       </div>
       <Link to={`/burger/${burger.slug}`}>
-        <BurgerItemHead isVeggie={burger.vegetarian}>
-          <p>{burger.name}</p>
-          <p>{burger.price}$</p>
-          <p> {burger.vegetarian ? "🥗" : "🥩"}</p>
+        <BurgerItemHead
+          isVeggie={burger.vegetarian}
+          data-testid="food-burger-item-head"
+        >
+          <p data-testid="food-burger-item-head-name">{burger.name}</p>
+          <p data-testid="food-burger-item-head-price">{burger.price}$</p>
+          <p data-testid="food-burger-item-vegetarian">
+            {" "}
+            {burger.vegetarian ? "🥗" : "🥩"}
+          </p>
         </BurgerItemHead>
       </Link>
 

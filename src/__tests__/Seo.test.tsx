@@ -1,5 +1,4 @@
 import React from "react"
-import { screen } from "@testing-library/react"
 import { render } from "../../test-utils/render"
 import { Seo } from "@components/Seo"
 import * as Gatsby from "gatsby"
