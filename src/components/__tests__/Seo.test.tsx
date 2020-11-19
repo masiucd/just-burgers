@@ -1,5 +1,5 @@
 import React from "react"
-import { render } from "../../test-utils/render"
+import { render } from "../../../test-utils/render"
 import { Seo } from "@components/Seo"
 import * as Gatsby from "gatsby"
 import * as reachRouter from "@reach/router"

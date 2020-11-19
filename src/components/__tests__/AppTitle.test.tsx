@@ -2,7 +2,7 @@ import React from "react"
 import { screen } from "@testing-library/react"
 import { css } from "styled-components"
 import { AppTitle } from "@components/elements"
-import { render } from "../../test-utils/render"
+import { render } from "../../../test-utils/render"
 
 describe("<AppTitle/>", () => {
   test("should renders correctly with the given props ", () => {
