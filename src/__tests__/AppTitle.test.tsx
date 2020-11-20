@@ -4,6 +4,10 @@ import { css } from "styled-components"
 import { AppTitle } from "@components/elements"
 import { render } from "../../test-utils/render"
 
+beforeEach(() => {
+  jest.clearAllMocks()
+})
+
 describe("<AppTitle/>", () => {
   test("should renders correctly with the given props ", () => {
     const props = {

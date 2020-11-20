@@ -4,6 +4,10 @@ import ChefItem from "../chef-item"
 import { fireEvent, screen } from "@testing-library/react"
 import "@testing-library/dom"
 
+beforeEach(() => {
+  jest.clearAllMocks()
+})
+
 describe("<ChefItem/>", () => {
   const chef = {
     id: "id",

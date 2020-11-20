@@ -3,6 +3,10 @@ import { screen } from "@testing-library/react"
 import { render } from "../../test-utils/render"
 import { RenderHtml } from "@components/component-utils"
 
+beforeEach(() => {
+  jest.clearAllMocks()
+})
+
 describe("<RenderHtml/>", () => {
   test("should renders correctly", () => {
     const dataTestId = "dataTestId"

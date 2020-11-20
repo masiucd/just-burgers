@@ -2,9 +2,9 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { mainTheme, GlobalStyles, Typography } from "@styled/index"
 import { graphql, useStaticQuery } from "gatsby"
-import Header from "./header"
+import Header from "./Header"
 import { below } from "@styled/media-query"
-import Footer from "./footer"
+import Footer from "./Footer"
 
 interface LayoutProps {
   title?: string

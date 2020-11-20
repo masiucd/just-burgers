@@ -1,6 +1,6 @@
 import React from "react"
 import { render } from "../../test-utils/render"
-import { Seo } from "@components/Seo"
+import { Seo } from "@components/seo"
 import * as Gatsby from "gatsby"
 import * as reachRouter from "@reach/router"
 

@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen } from "../../../../test-utils/render"
-import BurgersGallery from "../burger-gallery"
+import BurgersGallery from "@components/gallery/BurgerGallery"
 import * as Gatsby from "gatsby"
 
 beforeEach(() => {
