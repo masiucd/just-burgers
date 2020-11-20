@@ -9,8 +9,11 @@ interface DishProps {
 }
 
 const DishStyles = styled.li`
-  border: 2px solid blue;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  box-shadow: ${({ theme }) => theme.shadow.elevations[4]};
   font-size: 10px;
+  margin: 0.65em 0;
+
   width: 100%;
   p {
     font-size: 2em;
@@ -40,11 +43,6 @@ const DishStyles = styled.li`
   }
 `
 const Image = styled.div`
-  border: 2px solid red;
-  @media ${below.mobileS} {
-    display: flex;
-    justify-content: center;
-  }
   @media ${above.mobileL} {
     flex: 1;
   }
@@ -54,12 +52,12 @@ const Dish: React.FC<DishProps> = ({ dish }) => {
   return (
     <DishStyles data-testid="order-page-dish-item">
       <Image>
-        <GatsbyImage fixed={dish.image?.fixed} alt={`dish-${dish.slug}`} />
+        <GatsbyImage fluid={dish.image?.fluid} alt={`dish-${dish.slug}`} />
       </Image>
       <div className="dish-body">
         <p> {"name" in dish ? dish.name : dish.title} </p>
         <p> {dish.price}$ </p>
-        <Button>
+        <Button onClick={() => console.log("add to cart")}>
           {"name" in dish
             ? dish.name.slice(0, 8) + "..."
             : dish.title.slice(0, 8) + "..."}

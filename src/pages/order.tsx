@@ -45,8 +45,8 @@ export const ORDER_PAGE_QUERY = graphql`
           price
           vegetarian
           image {
-            fixed(width: 150, height: 150, quality: 90) {
-              ...GatsbyContentfulFixed_tracedSVG
+            fluid(maxWidth: 1000, maxHeight: 1000, quality: 90) {
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
@@ -60,8 +60,8 @@ export const ORDER_PAGE_QUERY = graphql`
           price
           vegetarian
           image {
-            fixed(width: 150, height: 150, quality: 90) {
-              ...GatsbyContentfulFixed_tracedSVG
+            fluid(maxWidth: 1000, maxHeight: 1000, quality: 90) {
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
