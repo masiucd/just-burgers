@@ -1,6 +1,6 @@
 import React from "react"
 import { render } from "../../../../test-utils/render"
-import ChefItem from "../chef-item"
+import ChefItem from "../ChefItem"
 import { fireEvent, screen } from "@testing-library/react"
 import "@testing-library/dom"
 
