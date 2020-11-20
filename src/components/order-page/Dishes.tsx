@@ -8,7 +8,10 @@ interface DishesProps {
 }
 
 const StyledDishes = styled.ul`
-  /*  */
+  border: 2px solid red;
+  max-height: 38rem;
+  overflow-y: scroll;
+  padding: 0;
 `
 
 const renderBurgers = (burgers: NodeType<Burger>[]) =>

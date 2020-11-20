@@ -13,10 +13,11 @@ import { TwoColumnGrid, Column } from "./Wrappers"
 import { GlobalStyles } from "./GlobalStyles"
 import Typography from "./typography"
 import { mainTheme } from "./theme"
-
+import { Button } from "./Buttons"
 export {
   mainTheme,
   below,
+  Button,
   GlobalStyles,
   Typography,
   above,

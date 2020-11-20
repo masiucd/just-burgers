@@ -23,14 +23,17 @@ const Legend = styled.legend`
 const MenuOrderWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
+  max-height: 100%;
   fieldset {
     flex: 1 1 100%;
+    margin: 0;
     max-height: 40rem;
-    overflow-y: scroll;
+    padding: 0;
+    &.menu {
+    }
   }
 
-  @media ${above.tablet} {
+  @media ${above.tabletL} {
     flex-direction: row;
   }
 `
