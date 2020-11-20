@@ -1,8 +1,8 @@
 import React from "react"
-const gatsbyPluginIntl = jest.requireActual("gatsby-plugin-intl")
+const gatsby = jest.requireActual("gatsby")
 
 module.exports = {
-  ...gatsbyPluginIntl,
+  ...gatsby,
   graphql: jest.fn(),
   Link: jest
     .fn()

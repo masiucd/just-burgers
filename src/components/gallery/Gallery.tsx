@@ -7,6 +7,7 @@ import useTextKey from "../../hooks/useTextKey"
 import { RenderHtml } from "../component-utils"
 
 const GalleryWrapper = styled.div``
+
 const Gallery = () => {
   const { t } = useTextKey()
 

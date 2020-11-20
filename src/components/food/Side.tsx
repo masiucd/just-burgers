@@ -75,11 +75,11 @@ const SideItemHead = styled.div<BurgerItemHeadProps>`
 
 const Side: React.FC<SideProps> = ({ side }) => {
   return (
-    <StyledSideItem>
-      <div className="img-wrapper-burger">
+    <StyledSideItem data-testid="food-styled-side-item">
+      <div className="img-wrapper-burger" data-testid="food-side-image-wrapper">
         <GatsbyImage fluid={side.image.fluid} alt={`side-${side.slug} `} />
       </div>
-      <Link to={`/side/${side.slug}`}>
+      <Link to={`/side/${side.slug}`} data-testid="food-side-link">
         <SideItemHead isVeggie={side.vegetarian}>
           <p>{side.title}</p>
           <p>{side.price}$</p>
@@ -89,9 +89,14 @@ const Side: React.FC<SideProps> = ({ side }) => {
 
       <div className="ingredients">
         <p>Main ingredients</p>
-        <div className="ingredients-wrapper">
+        <div
+          className="ingredients-wrapper"
+          data-testid="food-ingredients-wrapper-side"
+        >
           {side.ingredients?.ingredients.map(ingredient => (
-            <span key={ingredient}>{ingredient}</span>
+            <span key={ingredient} className="ingredient">
+              {ingredient}
+            </span>
           ))}
         </div>
       </div>

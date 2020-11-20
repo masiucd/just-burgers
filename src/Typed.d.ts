@@ -101,7 +101,7 @@ interface Side {
   slug: string
   price: number
   vegetarian: boolean
-  desc_: {
+  desc_?: {
     content: Content[]
   }
   ingredients?: {
