@@ -18,7 +18,7 @@ const Image = styled.div`
 
 const Dish: React.FC<DishProps> = ({ dish }) => {
   return (
-    <DishStyles>
+    <DishStyles data-testid="order-page-dish-item">
       <Image>
         <GatsbyImage fluid={dish.image?.fluid} alt={`dish-${dish.slug}`} />
       </Image>

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { FormSubmit } from "@styled/form-elements"
-import OrderFormElements from "./order-form-elements"
+import OrderFormElements from "./OrderFormElements"
 import { above } from "@styled/media-query"
 import Dishes from "./dishes"
 
@@ -36,9 +36,17 @@ const MenuOrderWrapper = styled.div`
 `
 
 const OrderForm: React.FC<OrderFormProps> = ({ className, burgers, sides }) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+  }
+
   return (
-    <form className={className}>
-      <FieldSet>
+    <form
+      className={className}
+      data-testid="order-page-order-form"
+      onChange={handleSubmit}
+    >
+      <FieldSet data-testid="order-page-name-fieldset">
         <Legend>Name and email</Legend>
         <OrderFormElements />
       </FieldSet>
@@ -54,7 +62,9 @@ const OrderForm: React.FC<OrderFormProps> = ({ className, burgers, sides }) => {
         </FieldSet>
       </MenuOrderWrapper>
 
-      <FormSubmit type="submit">Order</FormSubmit>
+      <FormSubmit data-testid="order-page-submit-button" type="submit">
+        Order
+      </FormSubmit>
     </form>
   )
 }

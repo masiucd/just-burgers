@@ -3,8 +3,8 @@ import { render } from "../../../../test-utils/render"
 import { screen } from "@testing-library/react"
 import Side from "../Side"
 
-describe("<Burger/>", () => {
-  test("should renders correctly and dish is for vegetarians", () => {
+describe("<Side/>", () => {
+  test("should renders correctly", () => {
     const side = {
       id: "id",
       title: "name",
@@ -38,7 +38,5 @@ describe("<Burger/>", () => {
 
     screen.getByText(side.ingredients.ingredients[0])
     screen.getByText(side.ingredients.ingredients[1])
-
-    screen.debug()
   })
 })

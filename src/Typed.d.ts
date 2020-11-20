@@ -109,5 +109,6 @@ interface Side {
   }
   image: {
     fluid: MapObject<any>
+    fixed: MapObject<any>
   }
 }

@@ -34,6 +34,7 @@ const App = styled.div`
   height: 100%;
   padding: 1em;
   width: 100%;
+  margin: 0 auto;
 `
 
 const LAYOUT_QUERY = graphql`

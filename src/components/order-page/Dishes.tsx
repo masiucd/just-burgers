@@ -19,7 +19,7 @@ const renderSides = (sides: NodeType<Side>[]) =>
 
 const Dishes: React.FC<DishesProps> = ({ burgers, sides }) => {
   return (
-    <StyledDishes>
+    <StyledDishes data-testid="order-page-dishes-list">
       {renderBurgers(burgers)}
       {renderSides(sides)}
     </StyledDishes>
