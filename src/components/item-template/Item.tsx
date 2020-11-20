@@ -7,7 +7,7 @@ import {
   ItemTitle,
   ItemWrapper,
   NamePrice,
-} from "@styled/item-styles"
+} from "@styled/ItemStyles"
 import { infoVariants, ingredientsVariants } from "@styled/variants"
 import { AnimatePresence } from "framer-motion"
 import GatsbyImage from "gatsby-image"

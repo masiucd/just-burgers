@@ -14,7 +14,7 @@
     "noImplicitAny": true,
     "baseUrl": "./src",
     "paths": {
-      "@src/*": ["src/*"],
+      // "@src/*": ["src/*"],
       "@components/*": ["components/*"],
       "@styled/*": ["styled/*"],
       "@hooks/*": ["hooks/*"],

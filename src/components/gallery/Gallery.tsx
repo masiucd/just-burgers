@@ -3,8 +3,8 @@ import { Column, Strong, TwoColumnGrid } from "../../styled"
 import BurgersGallery from "./BurgerGallery"
 import ChefsGallery from "./ChefsGallery"
 import styled from "styled-components"
-import useTextKey from "../../hooks/useTextKey"
-import { RenderHtml } from "../component-utils"
+import useTextKey from "@hooks/useTextKey"
+import { RenderHtml } from "@components/component-utils"
 
 const GalleryWrapper = styled.div``
 

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Dish from "./dish"
+import Dish from "./Dish"
 
 interface DishesProps {
   burgers: NodeType<Burger>[]

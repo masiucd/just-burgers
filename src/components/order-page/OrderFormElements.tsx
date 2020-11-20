@@ -1,4 +1,4 @@
-import { FormGroup, FormInput, FormLabel } from "@styled/form-elements"
+import { FormGroup, FormInput, FormLabel } from "@styled/FormElements"
 import React from "react"
 import styled from "styled-components"
 

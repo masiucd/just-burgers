@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { FormSubmit } from "@styled/form-elements"
+import { FormSubmit } from "@styled/FormElements"
 import OrderFormElements from "./OrderFormElements"
 import { above } from "@styled/media-query"
-import Dishes from "./dishes"
+import Dishes from "./Dishes"
 
 interface OrderFormProps {
   className: string

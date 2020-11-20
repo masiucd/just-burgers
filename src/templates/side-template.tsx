@@ -1,5 +1,5 @@
 import React from "react"
-import { Seo } from "@components/seo"
+import { Seo } from "@components/Seo"
 import { Layout } from "@components/layout"
 import { graphql, PageProps } from "gatsby"
 import Item from "@components/item-template/Item"

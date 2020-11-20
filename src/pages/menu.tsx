@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Layout } from "@components/layout"
-import { Seo } from "@components/seo"
+import { Seo } from "@components/Seo"
 import { graphql, PageProps } from "gatsby"
 import { Burger, Side } from "@components/food"
 import { AppTitle } from "@components/elements"

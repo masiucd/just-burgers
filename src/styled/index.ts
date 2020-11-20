@@ -6,11 +6,11 @@ import {
   AnimatedInfo,
   ImageWrapper,
   Ingredients,
-} from "./item-styles"
-import { Strong } from "./html-elements"
+} from "./ItemStyles"
+import { Strong } from "./HtmlElements"
 import { below, above } from "./media-query"
-import { TwoColumnGrid, Column } from "./wrappers"
-import { GlobalStyles } from "./global-styles"
+import { TwoColumnGrid, Column } from "./Wrappers"
+import { GlobalStyles } from "./GlobalStyles"
 import Typography from "./typography"
 import { mainTheme } from "./theme"
 
