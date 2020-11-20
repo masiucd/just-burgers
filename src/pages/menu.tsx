@@ -4,7 +4,7 @@ import { Seo } from "@components/Seo"
 import { graphql, PageProps } from "gatsby"
 import { Burger, Side } from "@components/food"
 import { AppTitle } from "@components/elements"
-import { Grid } from "@styled/wrappers"
+import { Grid } from "@styled/Wrappers"
 import useTextKey from "@hooks/useTextKey"
 import styled, { css } from "styled-components"
 
