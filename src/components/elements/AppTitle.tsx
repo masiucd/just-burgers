@@ -18,7 +18,7 @@ const AppTitle: React.FC<AppTitleProps> = ({
 }) => {
   return (
     <section className={className} data-testid="main-app-title">
-      <h2>{title}</h2>
+      <h2 id="app-title-main-h2">{title}</h2>
 
       {subTitle && (
         <RenderHtml

@@ -10,7 +10,7 @@ const textKeys: TextKey<TextKeyMap> = {
   `,
   ourBurgerTitle: `burgers`,
   ourSidesTitle: `sides`,
-  orderPageTitle: "We deliver faster then you think",
+  orderPageTitle: "Pick your favorite burger and we make the rest for you",
 }
 
 export default textKeys

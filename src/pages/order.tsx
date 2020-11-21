@@ -5,6 +5,8 @@ import { Seo } from "@components/Seo"
 import { AppTitle } from "@components/elements"
 import { OrderForm } from "@components/order-page"
 import { graphql, PageProps } from "gatsby"
+import { css } from "styled-components"
+import { above, below } from "@styled/media-query"
 
 interface OrdersPageData {
   burgers: {
@@ -15,6 +17,30 @@ interface OrdersPageData {
   }
 }
 
+const styles = css`
+  #app-title-main-h2 {
+    background: ${({ theme }) => theme.colors.illustrations.tertiary};
+    border-radius: 4px;
+    box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
+    padding: 0.2em;
+    @media ${below.mobileS} {
+      font-size: 20px;
+    }
+    @media ${above.mobileS} {
+      font-size: 2em;
+    }
+    @media ${above.mobileL} {
+      font-size: 2.5em;
+    }
+    @media ${above.tablet} {
+      font-size: 3em;
+    }
+    @media ${above.tabletL} {
+      font-size: 3.5em;
+    }
+  }
+`
+
 const OrdersPage: React.FC<PageProps<OrdersPageData>> = ({ data }) => {
   const { t } = useTextKey()
   return (
@@ -24,6 +50,7 @@ const OrdersPage: React.FC<PageProps<OrdersPageData>> = ({ data }) => {
         <AppTitle
           className="order-page-app-title"
           title={t("orderPageTitle")}
+          style={styles}
         />
         <OrderForm
           className="order-form"
