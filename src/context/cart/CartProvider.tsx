@@ -13,6 +13,8 @@ const CartDispatchContext = React.createContext<Dispatch | undefined>(undefined)
 function reducer(state: CartState = initialState, action: Action) {
   switch (action.type) {
     case "ADD_TO_CART":
+      // typeof window !== "undefined" &&
+      //   localStorage.setItem("cart", JSON.stringify(state.cart))
       return {
         ...state,
         cart: addItemToCart(state.cart, action.payload),
@@ -26,6 +28,11 @@ function reducer(state: CartState = initialState, action: Action) {
       return {
         ...state,
         status: action.payload,
+      }
+    case "UPDATE_CART":
+      return {
+        ...state,
+        cart: action.payload,
       }
     case "REMOVE_ITEM_COMPLETELY":
       return {

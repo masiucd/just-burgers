@@ -111,7 +111,8 @@ export default styled(OrderItem)`
     .info {
       justify-content: space-evenly;
     }
-  }
-  .remove-button {
+    p {
+      font-size: 1.5em;
+    }
   }
 `

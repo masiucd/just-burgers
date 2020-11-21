@@ -7,7 +7,7 @@ import { OrderForm } from "@components/order-page"
 import { graphql, PageProps } from "gatsby"
 import { css } from "styled-components"
 import { above, below } from "@styled/media-query"
-import { CartProvider } from "@context/index"
+import { CartProvider } from "../context"
 
 interface OrdersPageData {
   burgers: {

@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import OrderItem from "./OrderItem"
 import { useCartState } from "../../context"
+import { useLocalStorage } from "@hooks/useLocalStorage"
 
 const CartList = styled.ul`
   height: 100%;

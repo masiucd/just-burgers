@@ -7,6 +7,7 @@ import { AppTitle } from "@components/elements"
 import { Grid } from "@styled/Wrappers"
 import useTextKey from "@hooks/useTextKey"
 import styled, { css } from "styled-components"
+import { Ingredients } from "@components/order-page"
 
 interface BurgersPageProps {
   burgers: {
@@ -36,8 +37,39 @@ const Heading = styled.h3`
   padding: 0.125rem 0;
 `
 
+type ListType = NodeType<Burger>[] | NodeType<Side>[]
+type ListItem = NodeType<Burger> | NodeType<Side>
+
+const makeIngredientsList = (list: ListType) => {
+  return (list as ListItem[]).map(
+    (x: ListItem) => x.node.ingredients?.ingredients
+  )
+}
+
+const uniqueList = (list: string[]): string[] =>
+  list.filter((item, index) => list.indexOf(item) === index)
+
+const getIngredientList = (
+  burgers: NodeType<Burger>[],
+  sides: NodeType<Side>[]
+) => {
+  const burgersIngredients = makeIngredientsList(burgers)
+  const sideIngredients = makeIngredientsList(sides)
+
+  const xs = [...burgersIngredients, ...sideIngredients].flat() as string[]
+
+  return uniqueList(xs)
+}
+
 const MenuPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
   const { t } = useTextKey()
+  const {
+    burgers: { edges: burgersList },
+    sides: { edges: sideList },
+  } = data
+
+  const ingredients = getIngredientList(burgersList, sideList)
+
   return (
     <>
       <Seo title="burgers" description="our burgers" />
@@ -49,15 +81,16 @@ const MenuPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
           desc={t("ourBurgersDesc")}
           style={cx}
         />
+        <Ingredients ingredients={ingredients} />
         <Heading>{t("ourBurgerTitle")}</Heading>
         <Grid>
-          {data.burgers.edges.map(burger => (
+          {burgersList.map(burger => (
             <Burger key={burger.node.id} burger={burger.node} />
           ))}
         </Grid>
         <Heading>{t("ourSidesTitle")}</Heading>
         <Grid>
-          {data.sides.edges.map(side => (
+          {sideList.map(side => (
             <Side key={side.node.id} side={side.node} />
           ))}
         </Grid>

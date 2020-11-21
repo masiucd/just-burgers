@@ -17,6 +17,11 @@ interface RemoveFromCart {
   type: "REMOVE_FROM_CART"
   payload: CartItem
 }
+
+interface UpdateCart {
+  type: "UPDATE_CART"
+  payload: CartItem[]
+}
 interface RemoveItemCompletely {
   type: "REMOVE_ITEM_COMPLETELY"
   payload: string // id
@@ -34,3 +39,4 @@ export type Action =
   | SetStatus
   | CalculatePrice
   | RemoveItemCompletely
+  | UpdateCart

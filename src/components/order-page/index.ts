@@ -1,3 +1,3 @@
 import OrderForm from "./OrderForm"
-
-export { OrderForm }
+import Ingredients from "./Ingredients"
+export { OrderForm, Ingredients }
