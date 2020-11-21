@@ -15,9 +15,22 @@ interface SetStatus {
 
 interface RemoveFromCart {
   type: "REMOVE_FROM_CART"
+  payload: CartItem
+}
+interface RemoveItemCompletely {
+  type: "REMOVE_ITEM_COMPLETELY"
   payload: string // id
+}
+
+interface CalculatePrice {
+  type: "CALCULATE_PRICE"
 }
 
 export type Dispatch = (action: Action) => void
 
-export type Action = AddToCart | RemoveFromCart | SetStatus
+export type Action =
+  | AddToCart
+  | RemoveFromCart
+  | SetStatus
+  | CalculatePrice
+  | RemoveItemCompletely

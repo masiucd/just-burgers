@@ -3,7 +3,7 @@ import styled from "styled-components"
 import GatsbyImage from "gatsby-image"
 import { above, below } from "@styled/media-query"
 import { Button } from "@styled/Buttons"
-import { useCartDispath } from "@context/index"
+import { useCartDispath } from "../../context"
 
 type DishType = Burger | Side
 interface DishProps {

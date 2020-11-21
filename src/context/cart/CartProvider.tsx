@@ -1,5 +1,6 @@
 import React from "react"
 import { CartState, Dispatch, Action } from "./CartTypes"
+import { addItemToCart, removeItemFromCart } from "./helpers"
 
 const initialState: CartState = {
   cart: [],
@@ -14,17 +15,24 @@ function reducer(state: CartState = initialState, action: Action) {
     case "ADD_TO_CART":
       return {
         ...state,
-        cart: [...state.cart, action.payload],
+        cart: addItemToCart(state.cart, action.payload),
       }
     case "REMOVE_FROM_CART":
       return {
         ...state,
+        cart: removeItemFromCart(state.cart, action.payload),
       }
     case "SET_STATUS":
       return {
         ...state,
         status: action.payload,
       }
+    case "REMOVE_ITEM_COMPLETELY":
+      return {
+        ...state,
+        cart: state.cart.filter(item => item.id !== action.payload),
+      }
+
     default: {
       throw new Error(`Unable to resolve action type`)
     }

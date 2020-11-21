@@ -59,6 +59,7 @@ interface Burger {
   price?: number
   slug?: string
   vegetarian?: boolean
+  quantity?: number
   desc?: {
     desc: string
   }
@@ -101,6 +102,7 @@ interface Side {
   slug: string
   price: number
   vegetarian: boolean
+  quantity?: number
   desc_?: {
     content: Content[]
   }

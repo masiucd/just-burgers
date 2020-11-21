@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export const FormGroup = styled.div`
-  border: 2px solid red;
   display: flex;
   flex-flow: column wrap;
   padding: 1.5em 1em;

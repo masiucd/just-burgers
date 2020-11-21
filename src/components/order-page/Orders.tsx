@@ -1,10 +1,12 @@
-import { useCartState } from "@context/index"
 import React from "react"
 import styled from "styled-components"
 import OrderItem from "./OrderItem"
+import { useCartState } from "../../context"
 
 const CartList = styled.ul`
-  overflow: hidden;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 0;
 `
 
 const Orders = () => {
@@ -13,7 +15,7 @@ const Orders = () => {
   return (
     <CartList>
       {cart.length > 0 ? (
-        cart.map(item => (
+        cart.map((item: CartItem) => (
           <OrderItem
             key={item.id}
             item={item}

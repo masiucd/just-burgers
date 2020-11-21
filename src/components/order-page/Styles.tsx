@@ -23,7 +23,7 @@ const MenuOrderWrapper = styled.div`
     &.menu {
     }
     &.order {
-      overflow-y: scroll;
+      position: relative;
     }
   }
 
@@ -46,4 +46,14 @@ const Form = styled.form`
   margin-top: 2em;
 `
 
-export { FieldSet, Form, Wrapper, MenuOrderWrapper, Legend }
+const TotalPrice = styled.div`
+  background: ${({ theme }) => theme.colors.elements.bg};
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 2em;
+  justify-content: space-evenly;
+  padding: 0.4em;
+  padding: 1em;
+`
+
+export { FieldSet, Form, Wrapper, MenuOrderWrapper, Legend, TotalPrice }
