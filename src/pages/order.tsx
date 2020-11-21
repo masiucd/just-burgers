@@ -7,6 +7,7 @@ import { OrderForm } from "@components/order-page"
 import { graphql, PageProps } from "gatsby"
 import { css } from "styled-components"
 import { above, below } from "@styled/media-query"
+import { CartProvider } from "@context/index"
 
 interface OrdersPageData {
   burgers: {
@@ -17,7 +18,7 @@ interface OrdersPageData {
   }
 }
 
-const styles = css`
+const cx = css`
   #app-title-main-h2 {
     background: ${({ theme }) => theme.colors.illustrations.tertiary};
     border-radius: 4px;
@@ -50,13 +51,11 @@ const OrdersPage: React.FC<PageProps<OrdersPageData>> = ({ data }) => {
         <AppTitle
           className="order-page-app-title"
           title={t("orderPageTitle")}
-          style={styles}
+          style={cx}
         />
-        <OrderForm
-          className="order-form"
-          burgers={data.burgers.edges}
-          sides={data.sides.edges}
-        />
+        <CartProvider>
+          <OrderForm burgers={data.burgers.edges} sides={data.sides.edges} />
+        </CartProvider>
       </Layout>
     </>
   )

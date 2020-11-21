@@ -22,6 +22,9 @@ const MenuOrderWrapper = styled.div`
     padding: 0;
     &.menu {
     }
+    &.order {
+      overflow-y: scroll;
+    }
   }
 
   @media ${above.tabletL} {

@@ -1,12 +1,18 @@
 import { RenderHtml } from "@components/component-utils"
 import React from "react"
-import styled, { FlattenSimpleInterpolation } from "styled-components"
+import {
+  DefaultTheme,
+  FlattenInterpolation,
+  ThemeProps,
+} from "styled-components"
+import styled from "styled-components"
+
 interface AppTitleProps {
   title: string
   subTitle?: string
   desc?: string
   className: string
-  style?: FlattenSimpleInterpolation
+  style?: FlattenInterpolation<ThemeProps<DefaultTheme>>
 }
 
 const AppTitle: React.FC<AppTitleProps> = ({

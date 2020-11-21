@@ -1,5 +1,6 @@
 import React from "react"
 import Dishes from "./Dishes"
+import Orders from "./Orders"
 import { FieldSet, Legend, MenuOrderWrapper } from "./Styles"
 
 interface MenuAndOrderProps {
@@ -17,6 +18,7 @@ const MenuAndOrder: React.FC<MenuAndOrderProps> = ({ burgers, sides }) => {
 
       <FieldSet className="order">
         <Legend>Order</Legend>
+        <Orders />
       </FieldSet>
     </MenuOrderWrapper>
   )

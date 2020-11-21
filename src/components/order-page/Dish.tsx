@@ -3,6 +3,8 @@ import styled from "styled-components"
 import GatsbyImage from "gatsby-image"
 import { above, below } from "@styled/media-query"
 import { Button } from "@styled/Buttons"
+import { useCartDispath } from "@context/index"
+
 type DishType = Burger | Side
 interface DishProps {
   dish: DishType
@@ -60,6 +62,8 @@ const Image = styled.div`
 `
 
 const Dish: React.FC<DishProps> = ({ dish }) => {
+  const dispatch = useCartDispath()
+
   return (
     <DishStyles data-testid="order-page-dish-item">
       <Image>
@@ -68,7 +72,12 @@ const Dish: React.FC<DishProps> = ({ dish }) => {
       <div className="dish-body">
         <p> {"name" in dish ? dish.name : dish.title} </p>
         <p> {dish.price}$ </p>
-        <Button onClick={() => console.log("add to cart")}>
+        <Button
+          onClick={() => {
+            console.log("click")
+            dispatch({ type: "ADD_TO_CART", payload: dish })
+          }}
+        >
           {"name" in dish
             ? dish.name.slice(0, 8) + "..."
             : dish.title.slice(0, 8) + "..."}

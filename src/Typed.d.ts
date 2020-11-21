@@ -112,3 +112,7 @@ interface Side {
     fixed: MapObject<any>
   }
 }
+
+type CartItem = Side | Burger
+
+type Status = "OK" | "RESOLVED" | "PENDING" | "ERROR" | "DEFAULT"
