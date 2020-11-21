@@ -43,8 +43,19 @@ const DishStyles = styled.li`
   }
 `
 const Image = styled.div`
+  border-radius: ${({ theme }) => theme.borderRadius};
+  position: relative;
   @media ${above.mobileL} {
     flex: 1;
+  }
+  &:after {
+    background: rgba(0, 0, 0, 0.13);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 `
 

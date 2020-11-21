@@ -4,6 +4,7 @@ import styled from "styled-components"
 const FieldSet = styled.fieldset`
   border: 2px solid ${({ theme }) => theme.colors.illustrations.stroke};
   border-radius: ${({ theme }) => theme.borderRadius};
+  overflow: hidden;
 `
 
 const Legend = styled.legend`
@@ -39,6 +40,7 @@ const Form = styled.form`
   display: flex;
   flex-flow: column wrap;
   font-size: 10px;
+  margin-top: 2em;
 `
 
 export { FieldSet, Form, Wrapper, MenuOrderWrapper, Legend }
