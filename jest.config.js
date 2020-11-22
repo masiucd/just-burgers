@@ -22,6 +22,7 @@ const config = {
     "tests/(.*)": "<rootDir>/__tests__/$1",
     "^@components/(.*)": "<rootDir>/src/components/$1",
     "^@styled/(.*)": "<rootDir>/src/styled/$1",
+    "^@context/(.*)": "<rootDir>/src/context/$1",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   testPathIgnorePatterns: ["node_modules", ".cache", "public"],

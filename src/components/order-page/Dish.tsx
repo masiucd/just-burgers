@@ -73,10 +73,8 @@ const Dish: React.FC<DishProps> = ({ dish }) => {
         <p> {"name" in dish ? dish.name : dish.title} </p>
         <p> {dish.price}$ </p>
         <Button
-          onClick={() => {
-            console.log("click")
-            dispatch({ type: "ADD_TO_CART", payload: dish })
-          }}
+          data-testid="order-page-add-to-cart-button"
+          onClick={() => dispatch({ type: "ADD_TO_CART", payload: dish })}
         >
           {"name" in dish
             ? dish.name.slice(0, 8) + "..."

@@ -14,10 +14,11 @@ const Orders = () => {
   const { cart } = useCartState()
 
   return (
-    <CartList>
+    <CartList data-testid="order-page-order-list-column">
       {cart.length > 0 ? (
         cart.map((item: CartItem) => (
           <OrderItem
+            dataTestId="order-page-OrderItem"
             key={item.id}
             item={item}
             className={
@@ -28,7 +29,7 @@ const Orders = () => {
           />
         ))
       ) : (
-        <h4>No orders chosen</h4>
+        <h4 data-testid="order-page-no-orders-message">No orders chosen</h4>
       )}
     </CartList>
   )

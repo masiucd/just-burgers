@@ -6,13 +6,18 @@ import { useCartDispath } from "../../context"
 
 interface OrderItemProps {
   item: CartItem
+  dataTestId: string
   className: string
 }
 
 const calculatePrise = (item: CartItem) =>
   (Number(item.price) * Number(item.quantity)).toFixed(2)
 
-const OrderItem: React.FC<OrderItemProps> = ({ item, className }) => {
+const OrderItem: React.FC<OrderItemProps> = ({
+  item,
+  className,
+  dataTestId,
+}) => {
   const dispatch = useCartDispath()
 
   return (
@@ -21,6 +26,7 @@ const OrderItem: React.FC<OrderItemProps> = ({ item, className }) => {
       initial={{ opacity: 0, x: "100%" }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8 }}
+      data-testid={dataTestId}
     >
       <div className="name-title">
         <p>{"name" in item ? item.name : item.title}</p>

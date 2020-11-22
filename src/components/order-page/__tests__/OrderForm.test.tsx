@@ -42,7 +42,7 @@ describe("<OrderForm/>", () => {
       },
     ]
     const className = "className"
-    render(<OrderForm className={className} burgers={burgers} sides={sides} />)
+    render(<OrderForm burgers={burgers} sides={sides} />)
 
     const form = screen.getByTestId("order-page-order-form")
     expect(form.classList.contains(className))
@@ -54,7 +54,5 @@ describe("<OrderForm/>", () => {
     screen.getByRole("textbox", { name: /email/i })
 
     screen.getByTestId("order-page-submit-button")
-
-    screen.debug()
   })
 })
