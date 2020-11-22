@@ -31,11 +31,3 @@ export const below = {
   desktop: `(max-width: ${size.desktop})`,
   desktopL: `(max-width: ${size.desktop})`,
 }
-
-// @media ${device.laptop} {
-//   max-width: 800px;
-// }
-
-// @media ${device.desktop} {
-//   max-width: 1400px;
-// }

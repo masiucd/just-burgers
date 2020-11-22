@@ -118,3 +118,6 @@ interface Side {
 type CartItem = Side | Burger
 
 type Status = "OK" | "RESOLVED" | "PENDING" | "ERROR" | "DEFAULT"
+
+type ListType = NodeType<Burger>[] | NodeType<Side>[]
+type ListItem = NodeType<Burger> | NodeType<Side>

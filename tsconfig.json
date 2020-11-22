@@ -19,7 +19,8 @@
       "@context/*": ["context/*"],
       "@styled/*": ["styled/*"],
       "@hooks/*": ["hooks/*"],
-      "@images/*": ["images/*"]
+      "@images/*": ["images/*"],
+      "@helpers/*": ["helpers/*"]
     }
   },
   "exclude": ["node_modules", "public", ".cache"]

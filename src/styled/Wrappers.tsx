@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { below } from "."
+import { above } from "./media-query"
 
 export const TwoColumnGrid = styled.div`
   display: grid;
@@ -20,7 +22,20 @@ export const BurgersGrid = styled.section`
 `
 
 export const Grid = styled(BurgersGrid)`
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  margin: 1.125rem 0;
+  @media ${below.mobileS} {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  @media ${above.mobileS} {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  @media ${above.tabletL} {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+  @media ${above.laptop} {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+  }
 `

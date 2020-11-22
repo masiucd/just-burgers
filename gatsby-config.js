@@ -58,12 +58,13 @@ module.exports = {
       options: {
         alias: {
           // "@components": path.resolve(__dirname, "src/components"),
-          "@src": "src",
+          // "@src": "src",
           "@components": path.resolve(__dirname, "src/components"),
           "@hooks": path.resolve(__dirname, "src/hooks"),
           "@styled": path.resolve(__dirname, "src/styled"),
           "@images": path.resolve(__dirname, "src/images"),
           "@context": path.resolve(__dirname, "src/context"),
+          "@helpers": path.resolve(__dirname, "src/helpers"),
         },
         extensions: ["ts", "tsx", "js"],
       },

@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 interface IngredientsProps {
   ingredients: string[]
+  handleSelectIngredient: (ingredient: string) => void
 }
 
 const Wrapper = styled.div`
@@ -51,14 +52,20 @@ const IngredientsStyledItem = styled.li`
   }
 `
 
-const Ingredients: React.FC<IngredientsProps> = ({ ingredients }) => {
+const Ingredients: React.FC<IngredientsProps> = ({
+  ingredients,
+  handleSelectIngredient,
+}) => {
   return (
     <Wrapper>
       <h3>Filter by ingredients</h3>
       <IngredientsList>
+        <IngredientsStyledItem>
+          <button onClick={() => handleSelectIngredient("")}>All</button>
+        </IngredientsStyledItem>
         {ingredients.map(item => (
           <IngredientsStyledItem key={item}>
-            <button>{item}</button>
+            <button onClick={() => handleSelectIngredient(item)}>{item}</button>
           </IngredientsStyledItem>
         ))}
       </IngredientsList>

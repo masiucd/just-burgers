@@ -8,6 +8,12 @@ import { Grid } from "@styled/Wrappers"
 import useTextKey from "@hooks/useTextKey"
 import styled, { css } from "styled-components"
 import { Ingredients } from "@components/order-page"
+import { useState } from "react"
+import {
+  filterListByIngredient,
+  getIngredientList,
+  renderList,
+} from "../helpers"
 
 interface BurgersPageProps {
   burgers: {
@@ -37,31 +43,44 @@ const Heading = styled.h3`
   padding: 0.125rem 0;
 `
 
-type ListType = NodeType<Burger>[] | NodeType<Side>[]
-type ListItem = NodeType<Burger> | NodeType<Side>
+// const makeIngredientsList = (list: ListType) => {
+//   return (list as ListItem[]).map(
+//     (x: ListItem) => x.node.ingredients?.ingredients
+//   )
+// }
 
-const makeIngredientsList = (list: ListType) => {
-  return (list as ListItem[]).map(
-    (x: ListItem) => x.node.ingredients?.ingredients
-  )
-}
+// const uniqueList = (list: string[]): string[] =>
+//   list.filter((item, index) => list.indexOf(item) === index)
 
-const uniqueList = (list: string[]): string[] =>
-  list.filter((item, index) => list.indexOf(item) === index)
+// const getIngredientList = (
+//   burgers: NodeType<Burger>[],
+//   sides: NodeType<Side>[]
+// ) => {
+//   const burgersIngredients = makeIngredientsList(burgers)
+//   const sideIngredients = makeIngredientsList(sides)
 
-const getIngredientList = (
-  burgers: NodeType<Burger>[],
-  sides: NodeType<Side>[]
-) => {
-  const burgersIngredients = makeIngredientsList(burgers)
-  const sideIngredients = makeIngredientsList(sides)
+//   const xs = [...burgersIngredients, ...sideIngredients].flat() as string[]
 
-  const xs = [...burgersIngredients, ...sideIngredients].flat() as string[]
+//   return uniqueList(xs)
+// }
 
-  return uniqueList(xs)
-}
+// const filterListByIngredient = (selectedIngredient: string) => (
+//   list: ListType
+// ) =>
+//   (list as ListItem[])
+//     .map(
+//       (x: ListItem) =>
+//         x.node.ingredients?.ingredients.includes(selectedIngredient) && x
+//     )
+//     .filter(Boolean)
+
+// const renderList = (selectedIngredient: string) => (
+//   originalList: ListType,
+//   filteredList: ListType
+// ) => (selectedIngredient.length === 0 ? originalList : filteredList)
 
 const MenuPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
+  const [selectedIngredient, setSelectedIngredient] = useState("")
   const { t } = useTextKey()
   const {
     burgers: { edges: burgersList },
@@ -69,6 +88,28 @@ const MenuPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
   } = data
 
   const ingredients = getIngredientList(burgersList, sideList)
+
+  const handleSelectIngredient = (ingredient: string): void => {
+    setSelectedIngredient(ingredient)
+  }
+
+  const filteredBurgers = filterListByIngredient(selectedIngredient)(
+    burgersList
+  ) as NodeType<Burger>[]
+
+  const filteredSides = filterListByIngredient(selectedIngredient)(
+    sideList
+  ) as NodeType<Side>[]
+
+  const whatBurgerListToRender = renderList(selectedIngredient)(
+    burgersList,
+    filteredBurgers
+  ) as NodeType<Burger>[]
+
+  const whatSideListToRender = renderList(selectedIngredient)(
+    sideList,
+    filteredSides
+  ) as NodeType<Side>[]
 
   return (
     <>
@@ -81,16 +122,19 @@ const MenuPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
           desc={t("ourBurgersDesc")}
           style={cx}
         />
-        <Ingredients ingredients={ingredients} />
+        <Ingredients
+          ingredients={ingredients}
+          handleSelectIngredient={handleSelectIngredient}
+        />
         <Heading>{t("ourBurgerTitle")}</Heading>
         <Grid>
-          {burgersList.map(burger => (
+          {whatBurgerListToRender.map((burger: NodeType<Burger>) => (
             <Burger key={burger.node.id} burger={burger.node} />
           ))}
         </Grid>
         <Heading>{t("ourSidesTitle")}</Heading>
         <Grid>
-          {sideList.map(side => (
+          {whatSideListToRender.map(side => (
             <Side key={side.node.id} side={side.node} />
           ))}
         </Grid>
@@ -110,7 +154,7 @@ export const BURGERS_QUERY = graphql`
           slug
           vegetarian
           image {
-            fluid(maxHeight: 500, maxWidth: 500, quality: 90) {
+            fluid(maxHeight: 1000, maxWidth: 1000, quality: 90) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
@@ -129,7 +173,7 @@ export const BURGERS_QUERY = graphql`
           vegetarian
           slug
           image {
-            fluid(maxHeight: 500, maxWidth: 500, quality: 90) {
+            fluid(maxHeight: 1000, maxWidth: 1000, quality: 90) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
