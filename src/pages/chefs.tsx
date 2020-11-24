@@ -1,8 +1,18 @@
 import * as React from "react"
 import { Layout } from "@components/layout"
 import { Seo } from "@components/Seo"
+import { graphql, PageProps } from "gatsby"
+import { Chefs } from "@components/chefs"
 
-const ChefsPage = () => {
+interface ChefsPageData {
+  chefs: {
+    edges: NodeType<Chef>[]
+  }
+}
+
+const ChefsPage: React.FC<PageProps<ChefsPageData>> = ({ data }) => {
+  const { edges: chefsList } = data.chefs
+
   return (
     <>
       <Seo
@@ -11,9 +21,29 @@ const ChefsPage = () => {
       />
       <Layout>
         <h1>ChefsPage</h1>
+        <Chefs className="chefs-chefs-list" chefsList={chefsList} />
       </Layout>
     </>
   )
 }
+
+export const CHEFS_QUERY = graphql`
+  {
+    chefs: allContentfulChefs {
+      edges {
+        node {
+          id
+          name
+          about
+          image {
+            fluid(maxWidth: 1000, maxHeight: 1000, quality: 90) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default ChefsPage

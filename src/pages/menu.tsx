@@ -45,7 +45,6 @@ const Heading = styled.h3`
 
 const MenuPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
   const [selectedIngredient, setSelectedIngredient] = useState<string>("")
-
   const { t } = useTextKey()
   const {
     burgers: { edges: burgersList },

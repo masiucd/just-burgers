@@ -48,8 +48,9 @@ interface Chef {
   id: string
   name: string
   about: string
-  image: {
+  image?: {
     fluid: MapObject<any>
+    fixed: MapObject<any>
   }
 }
 

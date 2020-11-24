@@ -36,6 +36,10 @@ export const GlobalStyles = createGlobalStyle<Props>`
       font-size: ${({ theme }) => theme.size.a};
       text-transform: capitalize;
     }
+    ul{
+      padding:0;
+      margin: 0;
+    }
   ul,li{
     list-style: none;
   }
