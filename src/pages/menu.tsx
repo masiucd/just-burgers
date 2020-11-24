@@ -43,44 +43,9 @@ const Heading = styled.h3`
   padding: 0.125rem 0;
 `
 
-// const makeIngredientsList = (list: ListType) => {
-//   return (list as ListItem[]).map(
-//     (x: ListItem) => x.node.ingredients?.ingredients
-//   )
-// }
-
-// const uniqueList = (list: string[]): string[] =>
-//   list.filter((item, index) => list.indexOf(item) === index)
-
-// const getIngredientList = (
-//   burgers: NodeType<Burger>[],
-//   sides: NodeType<Side>[]
-// ) => {
-//   const burgersIngredients = makeIngredientsList(burgers)
-//   const sideIngredients = makeIngredientsList(sides)
-
-//   const xs = [...burgersIngredients, ...sideIngredients].flat() as string[]
-
-//   return uniqueList(xs)
-// }
-
-// const filterListByIngredient = (selectedIngredient: string) => (
-//   list: ListType
-// ) =>
-//   (list as ListItem[])
-//     .map(
-//       (x: ListItem) =>
-//         x.node.ingredients?.ingredients.includes(selectedIngredient) && x
-//     )
-//     .filter(Boolean)
-
-// const renderList = (selectedIngredient: string) => (
-//   originalList: ListType,
-//   filteredList: ListType
-// ) => (selectedIngredient.length === 0 ? originalList : filteredList)
-
 const MenuPage: React.FC<PageProps<BurgersPageProps, {}>> = ({ data }) => {
-  const [selectedIngredient, setSelectedIngredient] = useState("")
+  const [selectedIngredient, setSelectedIngredient] = useState<string>("")
+
   const { t } = useTextKey()
   const {
     burgers: { edges: burgersList },
@@ -187,3 +152,10 @@ export const BURGERS_QUERY = graphql`
 `
 
 export default MenuPage
+
+// for (let { node } of burgersList) {
+//   for (let i = 0; i < node.ingredients?.ingredients.length; i++) {
+//     console.log(node.ingredients?.ingredients[i])
+//     console.log(xs.includes(node.ingredients?.ingredients[i]))
+//   }
+// }

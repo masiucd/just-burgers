@@ -32,16 +32,28 @@ const IngredientsList = styled.ul`
   margin: 0 auto;
   max-width: 700px;
 `
-const IngredientsStyledItem = styled.li`
+
+interface IngredientsStyledItemProps {
+  selected?: string
+  item?: string
+}
+const IngredientsStyledItem = styled.li<IngredientsStyledItemProps>`
   button {
-    background: ${({ theme }) => theme.colors.elements.button};
+    background: ${({ theme, selected, item }) =>
+      selected === item
+        ? theme.colors.elements.headline
+        : theme.colors.elements.button};
     border: none;
     border-radius: ${({ theme }) => theme.borderRadius};
-    color: ${({ theme }) => theme.colors.elements.headline};
+    color: ${({ theme, selected, item }) =>
+      selected === item
+        ? theme.colors.elements.button
+        : theme.colors.elements.headline};
     cursor: pointer;
     font-size: 1.6em;
     margin-bottom: 1em;
     margin-left: 0.3em;
+    outline: none;
     padding: 0.4em;
     transition: ${({ theme }) => theme.transition.quickTransition};
     &:hover {
@@ -56,6 +68,8 @@ const Ingredients: React.FC<IngredientsProps> = ({
   ingredients,
   handleSelectIngredient,
 }) => {
+  const [selected, setSelected] = React.useState<string>("")
+
   return (
     <Wrapper>
       <h3>Filter by ingredients</h3>
@@ -64,8 +78,15 @@ const Ingredients: React.FC<IngredientsProps> = ({
           <button onClick={() => handleSelectIngredient("")}>All</button>
         </IngredientsStyledItem>
         {ingredients.map(item => (
-          <IngredientsStyledItem key={item}>
-            <button onClick={() => handleSelectIngredient(item)}>{item}</button>
+          <IngredientsStyledItem key={item} selected={selected} item={item}>
+            <button
+              onClick={() => {
+                handleSelectIngredient(item)
+                setSelected(item)
+              }}
+            >
+              {item}
+            </button>
           </IngredientsStyledItem>
         ))}
       </IngredientsList>
