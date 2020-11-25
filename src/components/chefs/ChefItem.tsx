@@ -103,7 +103,7 @@ const ChefItem: React.FC<ChefItemProps> = ({ chef }) => {
   }
   return (
     <StyledChefItem onMouseEnter={show} onMouseLeave={hide}>
-      <ImageWrapper to={`/chef/${chef.name}`}>
+      <ImageWrapper to={`/chef/${chef.name.toLowerCase()}`}>
         <GatsbyImage fluid={chef.image?.fluid} alt={`chef-${chef.name}`} />
       </ImageWrapper>
       <p className="name">{chef.name}</p>

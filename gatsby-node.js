@@ -21,11 +21,20 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      chefs: allContentfulChefs {
+        edges {
+          node {
+            id
+            name
+          }
+        }
+      }
     }
   `)
 
   const { edges: burgerData } = result.data.burgers
   const { edges: sidesData } = result.data.sides
+  const { edges: chefsData } = result.data.chefs
 
   burgerData.forEach(({ node }) => {
     const { slug } = node
@@ -45,6 +54,17 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/side-template.tsx`),
       context: {
         slug,
+      },
+    })
+  })
+  chefsData.forEach(({ node }) => {
+    const { name } = node
+    const lowerName = name.toLowerCase()
+    createPage({
+      path: `/chef/${lowerName}`,
+      component: path.resolve(`./src/templates/chef-template.tsx`),
+      context: {
+        lowerName,
       },
     })
   })
