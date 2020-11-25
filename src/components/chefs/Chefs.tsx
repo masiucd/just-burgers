@@ -22,10 +22,14 @@ const Chefs: React.FC<ChefsProps> = ({
 }
 export default styled(Chefs)`
   display: grid;
-  grid-gap: 2rem;
+  grid-column-gap: 30px;
+  grid-row-gap: 120px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  padding: none;
-  /* @media ${below.mobileL} {
-    padding: none;
-  } */
+  padding: 0;
+  @media ${below.mobileL} {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
 `

@@ -11,6 +11,7 @@ const textKeys: TextKey<TextKeyMap> = {
   ourBurgerTitle: `burgers`,
   ourSidesTitle: `sides`,
   orderPageTitle: "Pick your favorite burger and we make the rest for you",
+  chefsPageTitle: `the magicians`,
 }
 
 export default textKeys

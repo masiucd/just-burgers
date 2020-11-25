@@ -37,7 +37,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
       text-transform: capitalize;
     }
     ul{
-      padding:0;
+      padding: 0;
       margin: 0;
     }
   ul,li{

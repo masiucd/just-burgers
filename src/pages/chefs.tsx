@@ -3,6 +3,8 @@ import { Layout } from "@components/layout"
 import { Seo } from "@components/Seo"
 import { graphql, PageProps } from "gatsby"
 import { Chefs } from "@components/chefs"
+import { AppTitle } from "@components/elements"
+import useTextKey from "@hooks/useTextKey"
 
 interface ChefsPageData {
   chefs: {
@@ -12,7 +14,7 @@ interface ChefsPageData {
 
 const ChefsPage: React.FC<PageProps<ChefsPageData>> = ({ data }) => {
   const { edges: chefsList } = data.chefs
-
+  const { t } = useTextKey()
   return (
     <>
       <Seo
@@ -20,7 +22,7 @@ const ChefsPage: React.FC<PageProps<ChefsPageData>> = ({ data }) => {
         description="out masters that creates the top burgers"
       />
       <Layout>
-        <h1>ChefsPage</h1>
+        <AppTitle className="chefs-title-page" title={t("chefsPageTitle")} />
         <Chefs className="chefs-chefs-list" chefsList={chefsList} />
       </Layout>
     </>
