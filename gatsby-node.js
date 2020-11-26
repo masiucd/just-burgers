@@ -59,13 +59,12 @@ exports.createPages = async ({ graphql, actions }) => {
   })
   chefsData.forEach(({ node }) => {
     const { name } = node
-    const lowerName = name.toLowerCase()
-    console.log(lowerName)
+
     createPage({
-      path: `/chef/${lowerName}`,
+      path: `/chef/${name}`,
       component: path.resolve(`./src/templates/chef-template.tsx`),
       context: {
-        name: lowerName,
+        name,
       },
     })
   })

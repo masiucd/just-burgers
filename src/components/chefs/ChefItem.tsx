@@ -48,18 +48,24 @@ const StyledChefItem = styled.li`
     background: rgba(255, 84, 112, 0.7);
     border: 2px solid ${({ theme }) => theme.colors.illustrations.stroke};
     border-radius: ${({ theme }) => theme.borderRadius};
-    bottom: -75px;
+    /* bottom: -75px; */
     color: ${props => props.theme.colors.illustrations.main};
     font-size: 15px;
     left: 0;
     position: absolute;
     @media ${below.mobileS} {
       font-size: 12px;
+      bottom: -25px;
     }
-  }
-  @media ${below.mobileS} {
-    font-size: 12px;
-    margin-bottom: 4rem;
+
+    @media ${above.mobileS} {
+      font-size: 12px;
+      bottom: -25px;
+    }
+    @media ${above.mobileL} {
+      bottom: -20px;
+      font-size: 1.2em;
+    }
   }
 
   @media ${below.laptop} {
@@ -102,7 +108,12 @@ const ChefItem: React.FC<ChefItemProps> = ({ chef }) => {
     hide: { opacity: 0, x: "-100%" },
   }
   return (
-    <StyledChefItem onMouseEnter={show} onMouseLeave={hide}>
+    <StyledChefItem
+      onMouseEnter={show}
+      onMouseLeave={hide}
+      onTouchStart={show}
+      onTouchCancel={hide}
+    >
       <ImageWrapper to={`/chef/${chef.name.toLowerCase()}`}>
         <GatsbyImage fluid={chef.image?.fluid} alt={`chef-${chef.name}`} />
       </ImageWrapper>
@@ -114,7 +125,7 @@ const ChefItem: React.FC<ChefItemProps> = ({ chef }) => {
         variants={variants}
         transition={{ duration: 0.2, damping: 4 }}
       >
-        {chef.about}
+        {chef.about.slice(0, 50)}...
       </motion.p>
     </StyledChefItem>
   )
