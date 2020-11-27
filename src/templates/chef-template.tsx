@@ -37,7 +37,7 @@ export const CHEFS_TEMPLATE_QUERY = graphql`
       about
       image {
         fluid(quality: 100, maxWidth: 900, maxHeight: 650) {
-          ...GatsbyContentfulFluid
+          ...GatsbyContentfulFluid_tracedSVG
         }
       }
     }
