@@ -39,6 +39,11 @@ function reducer(state: CartState = initialState, action: Action) {
         ...state,
         cart: state.cart.filter(item => item.id !== action.payload),
       }
+    case "CLEAR_CART":
+      return {
+        ...state,
+        cart: [],
+      }
 
     default: {
       throw new Error(`Unable to resolve action type`)

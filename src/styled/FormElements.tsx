@@ -29,30 +29,21 @@ export const FormLabel = styled.label`
     padding: 0.3em 0;
   }
 `
+interface FormSubmitProps {
+  disabledStyle: boolean
+}
+export const FormSubmit = styled.button<FormSubmitProps>`
+  background: ${({ disabledStyle, theme: { colors } }) =>
+    disabledStyle
+      ? colors.illustrations.stroke
+      : colors.illustrations.tertiary};
 
-export const FormSubmit = styled.button`
-  background: ${({ theme: { colors } }) => colors.illustrations.main};
-  background-image: linear-gradient(
-    to right,
-    ${({ theme: { colors } }) => colors.illustrations.highlight} 50%,
-    ${({ theme: { colors } }) => colors.illustrations.tertiary} 50%
-  );
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(
-      50%,
-      ${({ theme: { colors } }) => colors.illustrations.highlight}
-    ),
-    color-stop(50%, ${({ theme: { colors } }) => colors.illustrations.tertiary})
-  );
-  background-position: 0;
-  background-size: 200%;
   border: 2px solid ${({ theme }) => theme.colors.illustrations.stroke};
+
   border-radius: ${props => props.theme.borderRadius};
   box-shadow: ${({ theme }) => theme.shadow.elevations[3]};
-  color: ${({ theme: { colors } }) => colors.illustrations.stroke};
+  color: ${({ disabledStyle, theme: { colors } }) =>
+    disabledStyle ? colors.illustrations.main : colors.illustrations.stroke};
   cursor: pointer;
   display: block;
   font-size: 2em;
@@ -63,8 +54,10 @@ export const FormSubmit = styled.button`
   transition: ${({ theme }) => theme.transition.mainTransition};
   width: 80%;
   &:hover {
-    background-position: -100%;
+    background: ${({ theme: { colors } }) => colors.illustrations.stroke};
     box-shadow: ${({ theme }) => theme.shadow.elevations[4]};
+    color: ${({ theme: { colors } }) => colors.illustrations.main};
+    width: 79%;
   }
   &:active {
     position: relative;

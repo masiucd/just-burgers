@@ -50,7 +50,7 @@ const ImageItem: React.FC<ImageItemProps> = ({ item }) => {
       <div className="chef-img" data-testid="gallery-image-item-gatsby-image">
         <GatsbyImage
           fluid={item.image ? item.image.fluid : ""}
-          alt={`image-item-${item.name}`}
+          alt={`image-item-${"slug" in item ? item.slug : ""}`}
         />
         <strong>{item.name}</strong>
       </div>

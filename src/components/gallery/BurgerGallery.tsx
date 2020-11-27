@@ -13,6 +13,7 @@ export const BURGERS_GALLERY_QUERY = graphql`
         node {
           id
           name
+          slug
           image {
             fluid(maxHeight: 500, maxWidth: 500, quality: 90) {
               ...GatsbyContentfulFluid_tracedSVG

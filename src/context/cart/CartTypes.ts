@@ -27,6 +27,10 @@ interface RemoveItemCompletely {
   payload: string // id
 }
 
+interface ClearCart {
+  type: "CLEAR_CART"
+}
+
 interface CalculatePrice {
   type: "CALCULATE_PRICE"
 }
@@ -40,3 +44,4 @@ export type Action =
   | CalculatePrice
   | RemoveItemCompletely
   | UpdateCart
+  | ClearCart
