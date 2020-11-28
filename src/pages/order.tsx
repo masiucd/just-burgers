@@ -53,49 +53,49 @@ const OrdersPage: React.FC<PageProps<OrdersPageData>> = ({ data }) => {
           title={t("orderPageTitle")}
           style={cx}
         />
-        {/* <CartProvider>
+        <CartProvider>
           <OrderForm burgers={data.burgers.edges} sides={data.sides.edges} />
-        </CartProvider> */}
+        </CartProvider>
       </Layout>
     </>
   )
 }
 
 export const ORDER_PAGE_QUERY = graphql`
-  # {
-  #   burgers: allContentfulBurgers {
-  #     edges {
-  #       node {
-  #         id
-  #         name
-  #         price
-  #         vegetarian
-  #         quantity
-  #         image {
-  #           fluid(maxWidth: 1000, maxHeight: 1000, quality: 90) {
-  #             ...GatsbyContentfulFluid_tracedSVG
-  #           }
-  #         }
-  #       }
-  #     }
-  #   }
-  #   sides: allContentfulSides {
-  #     edges {
-  #       node {
-  #         id
-  #         title
-  #         price
-  #         vegetarian
-  #         quantity
-  #         image {
-  #           fluid(maxWidth: 1000, maxHeight: 1000, quality: 90) {
-  #             ...GatsbyContentfulFluid_tracedSVG
-  #           }
-  #         }
-  #       }
-  #     }
-  #   }
-  # }
+  {
+    burgers: allContentfulBurgers {
+      edges {
+        node {
+          id
+          name
+          price
+          vegetarian
+          quantity
+          image {
+            fluid(maxWidth: 1000, maxHeight: 1000, quality: 90) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
+      }
+    }
+    sides: allContentfulSides {
+      edges {
+        node {
+          id
+          title
+          price
+          vegetarian
+          quantity
+          image {
+            fluid(maxWidth: 1000, maxHeight: 1000, quality: 90) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
+      }
+    }
+  }
 `
 
 export default OrdersPage
