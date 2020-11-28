@@ -14,10 +14,10 @@ const twitterUsername = "@Ciszekmarcell"
 const siteImage = `images/dark-icon.png`
 const siteKeywords = ["gatsby", "typescript", "food", "javascript", "react"]
 const navigationLinks = [
-  {
-    name: "your favorites",
-    path: "favorites",
-  },
+  // {
+  //   name: "your favorites",
+  //   path: "favorites",
+  // },
   {
     name: "menu",
     path: "menu",
@@ -49,8 +49,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `images`,
         path: `${__dirname}/src/images`,
-        name: "images",
       },
     },
     {
@@ -70,6 +70,19 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.SPACE_ID,
@@ -83,6 +96,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
+    {
       resolve: "gatsby-plugin-react-axe",
       options: {
         showInProduction: false,
@@ -93,6 +112,7 @@ module.exports = {
         },
       },
     },
+
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

@@ -46,6 +46,12 @@ const MessageBody = styled.section`
     li {
       font-size: 1.8em;
       margin: 0.5rem 0;
+      span {
+        margin-left: 0.5em;
+        &:last-child {
+          border-bottom: 2px solid black;
+        }
+      }
     }
   }
 `
@@ -91,7 +97,11 @@ const OrderConfirmMessage: React.FC<OrderConfirmMessageProps> = ({
         <ul>
           {cart.length > 0 &&
             cart.map(cart => (
-              <li key={cart.id}>{"name" in cart ? cart.name : cart.title}</li>
+              <li key={cart.id}>
+                {"name" in cart ? cart.name : cart.title}
+                <span>{cart.price}$</span>
+                <span>{cart.quantity}</span>
+              </li>
             ))}
         </ul>
         <CloseButtton onClick={handleClick}>
